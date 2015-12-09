@@ -6,9 +6,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->tableView->setModel(request.outputPersons());
 
-    ui->radioCS->setChecked(true);
+    QSortFilterProxyModel *proxy_model = new QSortFilterProxyModel();
+    proxy_model->setSourceModel(request.outputPersons());
+    ui->tableView->setModel(proxy_model); //Initial table view
+    ui->tableView->setSortingEnabled(true);
+
+    ui->radioCS->setChecked(true); //Initial radio button check
 }
 
 MainWindow::~MainWindow()
@@ -18,10 +22,14 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_radioComp_clicked()
 {
-    ui->tableView->setModel(request.outputComputers());
+    QSortFilterProxyModel *proxy_model = new QSortFilterProxyModel();
+    proxy_model->setSourceModel(request.outputComputers());
+    ui->tableView->setModel(proxy_model);
 }
 
 void MainWindow::on_radioCS_clicked()
 {
-    ui->tableView->setModel(request.outputPersons());
+    QSortFilterProxyModel *proxy_model = new QSortFilterProxyModel();
+    proxy_model->setSourceModel(request.outputPersons());
+    ui->tableView->setModel(proxy_model);
 }

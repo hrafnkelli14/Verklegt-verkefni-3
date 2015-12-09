@@ -25,8 +25,8 @@ class DbManager
 public:
     DbManager(); //main constructor
     ~DbManager();
-    QSqlQueryModel* getAllPersons(QString order_by, QString view_gender); //outputs list according to order_by and view_gender
-    QSqlQueryModel* getAllComputers(QString order_by);
+    QSqlQueryModel* getAllPersons();
+    QSqlQueryModel* getAllComputers();
     QSqlQueryModel* searchPersons(QString search_type, QString search_query, QString order_by, QString view_gender);
     QSqlQueryModel* searchComputers(QString search_type, QString search_query, QString order_by);
     ComputerXPersons getComputerXPersons(QString cid);

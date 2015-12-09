@@ -7,11 +7,6 @@
 #ifndef REQUESTPROCESSOR_H
 #define REQUESTPROCESSOR_H
 
-enum personordering{NAME, NAME_R, DOB, DOB_R, DOD, DOD_R, pID, pID_R}; //_R means reverse.
-enum computerordering{CNAME, CNAME_R, YEAR, YEAR_R, TYPE, TYPE_R, cID, cID_R};
-enum gendertype{MALE, FEMALE, BOTH};
-//BOTH is for implementation of a politically correct list(and is the default setting)
-
 class RequestProcessor
 {
 public:
@@ -42,31 +37,9 @@ public:
     bool deletePerson(QString id);
     bool deleteComputer(QString id);
     bool deleteRelation(QString cid, QString pid);
-
-    void setPersonOrdering(personordering _order_by); //sets order_by attribute
-    void setComputerOrdering(computerordering _order_by);
-    void setGenderView(gendertype _view_gender); //sets view_gender attribute
-
-    personordering getPersonOrdering(); //returns order_by attribute
-    computerordering getComputerOrdering();
-    gendertype getGenderView(); //returns view_gender attribute
-
 private:
-    //settings functions
-    QString personOrderingToQStr();
-    QString computerOrderingToQStr();
-    QString gendertypeToQStr();
-    void readPersonOrdering();
-    void readComputerOrdering();
-    void readGenderView();
-    void readSettings();
-
     XmlFile settings; //xml file connection(settings)
     DbManager data; //sql database connection
-
-    personordering person_order_by; //order by setting
-    computerordering computer_order_by;
-    gendertype view_gender; //gender view setting
 };
 
 #endif // REQUESTPROCESSOR_H

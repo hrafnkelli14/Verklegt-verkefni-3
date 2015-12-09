@@ -24,23 +24,14 @@ DbManager::~DbManager()
 }
 
 //========PUBLIC FUNCTIONS==========
-QSqlQueryModel* DbManager::getAllPersons(QString order_by, QString view_gender)
+QSqlQueryModel* DbManager::getAllPersons()
 {
-    if(view_gender != "BOTH")
-    {
-        return findPersons("WHERE gender LIKE '" + view_gender + "' " +
-                           "ORDER BY " + ascOrDesc(order_by));
-    }
-    else
-    {
-        return findPersons("ORDER BY " + ascOrDesc(order_by));
-    }
-
+    return findPersons("");
 }
 
-QSqlQueryModel* DbManager::getAllComputers(QString order_by)
+QSqlQueryModel* DbManager::getAllComputers()
 {
-    return findComputers("ORDER BY " + ascOrDesc(order_by));
+    return findComputers("");
 }
 
 QSqlQueryModel* DbManager::searchPersons(QString search_type, QString search_query, QString order_by, QString view_gender)
