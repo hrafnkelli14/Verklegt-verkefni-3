@@ -365,7 +365,8 @@ QSqlQueryModel* DbManager::findPersons(QString conditions)
     QSqlQueryModel *model = new QSqlQueryModel();
     qry->exec("PRAGMA foreign_keys=ON");
 
-    qry->exec("SELECT name AS Name, "
+    qry->exec("SELECT pID, "
+              "name AS Name, "
               "gender AS Gender, "
               "dob AS 'Date of Birth', "
               "dod AS 'Date of Death' "
@@ -385,7 +386,8 @@ QSqlQueryModel* DbManager::findComputers(QString conditions)
     QSqlQueryModel *model = new QSqlQueryModel();
     qry->exec("PRAGMA foreign_keys=ON");
 
-    qry->exec("SELECT name AS Name, "
+    qry->exec("SELECT cID, "
+              "name AS Name, "
               "CASE WHEN year IS NULL THEN 'Unknown' ELSE year END AS 'Build Year', "
               "type AS Type, "
               "CASE WHEN built = 1 THEN 'Yes' ELSE 'No' END AS Built "

@@ -245,8 +245,6 @@ bool RequestProcessor::deleteRelation(QString cid, QString pid)
 {
     return data.deleteComputerXPerson(cid, pid);
 }
-
-
 //========PRIVATE FUNCTIONS==========
 
 
