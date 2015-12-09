@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tableView->verticalHeader()->setVisible(false); //hide vertical header
     ui->tableView->hideColumn(0); //hide id column
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows); //select by rows, not columns
+    ui->tableView->setContextMenuPolicy(Qt::CustomContextMenu);
     for (int c = 0; c < ui->tableView->horizontalHeader()->count(); ++c) //fill the width of the table window
     {
         ui->tableView->horizontalHeader()->setSectionResizeMode(
@@ -43,4 +44,15 @@ void MainWindow::on_radioCS_clicked()
     proxy_model->setSourceModel(request.outputPersons());
     ui->tableView->setModel(proxy_model);
     ui->tableView->hideColumn(0);
+}
+
+void MainWindow::on_tableView_customContextMenuRequested(const QPoint &pos)
+{
+    QModelIndex index = ui->tableView->indexAt(pos);
+
+    QMenu *menu = new QMenu(this);
+    menu->addAction(new QAction("Edit", this));
+    menu->addAction(new QAction("Delete", this));
+    menu->addAction(new QAction("Info", this));
+    menu->popup(ui->tableView->viewport()->mapToGlobal(pos));
 }

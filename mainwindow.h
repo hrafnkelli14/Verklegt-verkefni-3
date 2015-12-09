@@ -22,6 +22,8 @@ private slots:
 
     void on_radioCS_clicked();
 
+    void on_tableView_customContextMenuRequested(const QPoint &pos);
+
 private:
     Ui::MainWindow *ui;
     RequestProcessor request;
