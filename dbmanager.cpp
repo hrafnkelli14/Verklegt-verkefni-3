@@ -369,7 +369,7 @@ QSqlQueryModel* DbManager::findPersons(QString conditions)
               "name AS Name, "
               "gender AS Gender, "
               "dob AS 'Date of Birth', "
-              "dod AS 'Date of Death' "
+              "CASE WHEN dod = 'alive' THEN 'Still alive' ELSE dod END AS 'Date of Death' "
               "FROM Persons "
               + conditions);
 
