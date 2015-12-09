@@ -27,12 +27,12 @@ public:
     QString extractCommand(QString command_string);
     QString extractId(QString command_string);
 
-    QVector<Person> outputPersons();
-    QVector<Computer> outputComputers();
+    QSqlQueryModel* outputPersons();
+    QSqlQueryModel* outputComputers();
     ComputerXPersons outputComputerXPersons(QString cid);
     PersonXComputers outputPersonXComputers(QString pid);
-    QVector<Person> searchPersons(QString search_string);
-    QVector<Computer> searchComputers(QString search_string);
+    QSqlQueryModel* searchPersons(QString search_string);
+    QSqlQueryModel* searchComputers(QString search_string);
 
     Person getPerson(QString id);
     Computer getComputer(QString id);

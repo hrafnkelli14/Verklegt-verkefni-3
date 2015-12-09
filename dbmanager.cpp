@@ -24,7 +24,7 @@ DbManager::~DbManager()
 }
 
 //========PUBLIC FUNCTIONS==========
-QVector<Person> DbManager::getAllPersons(QString order_by, QString view_gender)
+QSqlQueryModel* DbManager::getAllPersons(QString order_by, QString view_gender)
 {
     if(view_gender != "BOTH")
     {
@@ -38,12 +38,12 @@ QVector<Person> DbManager::getAllPersons(QString order_by, QString view_gender)
 
 }
 
-QVector<Computer> DbManager::getAllComputers(QString order_by)
+QSqlQueryModel* DbManager::getAllComputers(QString order_by)
 {
     return findComputers("ORDER BY " + ascOrDesc(order_by));
 }
 
-QVector<Person> DbManager::searchPersons(QString search_type, QString search_query, QString order_by, QString view_gender)
+QSqlQueryModel* DbManager::searchPersons(QString search_type, QString search_query, QString order_by, QString view_gender)
 {
     if(view_gender != "BOTH")
     {
@@ -58,7 +58,7 @@ QVector<Person> DbManager::searchPersons(QString search_type, QString search_que
     }
 }
 
-QVector<Computer> DbManager::searchComputers(QString search_type, QString search_query, QString order_by)
+QSqlQueryModel* DbManager::searchComputers(QString search_type, QString search_query, QString order_by)
 {
     return findComputers("WHERE " + search_type + " COLLATE UTF8_GENERAL_CI LIKE '%" + search_query + "%' "
                          "ORDER BY " + ascOrDesc(order_by));
@@ -87,12 +87,13 @@ ComputerXPersons DbManager::getComputerXPersons(QString cid)
 
     for(int i = 0; i < pids.size(); i++)
     {
-        pers.push_back(findPersons("WHERE pID = " + pids[i]).first());
+        //pers.push_back(findPersons("WHERE pID = " + pids[i]).first());
+        //look at later
     }
 
     db.close();
 
-    cxp.setComputer(findComputers("WHERE cID = " + cid).first());
+    //cxp.setComputer(findComputers("WHERE cID = " + cid).first());
     cxp.setPersons(pers);
 
     return cxp;
@@ -121,12 +122,13 @@ PersonXComputers DbManager::getPersonXComputers(QString pid)
 
     for(int i = 0; i < cids.size(); i++)
     {
-        comps.push_back(findComputers("WHERE cID = " + cids[i]).first());
+        //comps.push_back(findComputers("WHERE cID = " + cids[i]).first())
+        //TODO
     }
 
     db.close();
 
-    pxc.setPerson(findPersons("WHERE pID = " + pid).first());
+    //pxc.setPerson(findPersons("WHERE pID = " + pid).first());
     pxc.setComputers(comps);
 
     return pxc;
@@ -365,68 +367,38 @@ void DbManager::createTables()
               "PRIMARY KEY(pID, cID))");
 }
 
-QVector<Person> DbManager::findPersons(QString conditions)
+QSqlQueryModel* DbManager::findPersons(QString conditions)
 {
     db.open();
-    Person temp;
-    QVector<Person> results;
-    QSqlQuery qry;
-    qry.exec("PRAGMA foreign_keys=ON");
+    QSqlQuery *qry = new QSqlQuery();
+    QSqlQueryModel *model = new QSqlQueryModel();
+    qry->exec("PRAGMA foreign_keys=ON");
 
-    qry.exec("SELECT pID, name, gender, dob, dod "
+    qry->exec("SELECT pID, name, gender, dob, dod "
              "FROM Persons "
              + conditions);
 
-    int i_id = qry.record().indexOf("pID");
-    int i_name = qry.record().indexOf("name");
-    int i_gender = qry.record().indexOf("gender");
-    int i_dob = qry.record().indexOf("dob");
-    int i_dod = qry.record().indexOf("dod");
-
-    while(qry.next())
-    {
-        temp.setId(qry.value(i_id).toString().toStdString());
-        temp.setName(qry.value(i_name).toString().toStdString());
-        temp.setGender(qry.value(i_gender).toString().toStdString());
-        temp.setDoB(fromISO(qry.value(i_dob).toString()).toStdString());
-        temp.setDoD(fromISO(qry.value(i_dod).toString()).toStdString());
-        results.push_back(temp);
-    }
+    model->setQuery(*qry);
     db.close();
 
-    return results;
+    return model;
 }
 
-QVector<Computer> DbManager::findComputers(QString conditions)
+QSqlQueryModel* DbManager::findComputers(QString conditions)
 {
     db.open();
-    Computer temp;
-    QVector<Computer> results;
-    QSqlQuery qry;
-    qry.exec("PRAGMA foreign_keys=ON");
+    QSqlQuery *qry = new QSqlQuery();
+    QSqlQueryModel *model = new QSqlQueryModel();
+    qry->exec("PRAGMA foreign_keys=ON");
 
-    qry.exec("SELECT cID, name, year, type, built "
+    qry->exec("SELECT cID, name, year, type, built "
              "FROM Computers "
              + conditions);
 
-    int i_id = qry.record().indexOf("cID");
-    int i_name = qry.record().indexOf("name");
-    int i_year = qry.record().indexOf("year");
-    int i_type = qry.record().indexOf("type");
-    int i_built = qry.record().indexOf("built");
-
-    while(qry.next())
-    {
-        temp.setId(qry.value(i_id).toString().toStdString());
-        temp.setName(qry.value(i_name).toString().toStdString());
-        temp.setYear(qry.value(i_year).toString().toStdString());
-        temp.setType(qry.value(i_type).toString().toStdString());
-        temp.setBuilt(stoi(qry.value(i_built).toString().toStdString())); //stoi to change to bool
-        results.push_back(temp);
-    }
+    model->setQuery(*qry);
     db.close();
 
-    return results;
+    return model;
 }
 
 QString DbManager::ascOrDesc(QString order_by)

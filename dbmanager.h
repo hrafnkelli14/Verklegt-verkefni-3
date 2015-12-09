@@ -4,6 +4,7 @@
 #include <QString>
 #include <QFileInfo>
 #include <QVector>
+#include <QSqlQueryModel>
 #include "person.h"
 #include "computer.h"
 #include "computerxpersons.h"
@@ -24,10 +25,10 @@ class DbManager
 public:
     DbManager(); //main constructor
     ~DbManager();
-    QVector<Person> getAllPersons(QString order_by, QString view_gender); //outputs list according to order_by and view_gender
-    QVector<Computer> getAllComputers(QString order_by);
-    QVector<Person> searchPersons(QString search_type, QString search_query, QString order_by, QString view_gender);
-    QVector<Computer> searchComputers(QString search_type, QString search_query, QString order_by);
+    QSqlQueryModel* getAllPersons(QString order_by, QString view_gender); //outputs list according to order_by and view_gender
+    QSqlQueryModel* getAllComputers(QString order_by);
+    QSqlQueryModel* searchPersons(QString search_type, QString search_query, QString order_by, QString view_gender);
+    QSqlQueryModel* searchComputers(QString search_type, QString search_query, QString order_by);
     ComputerXPersons getComputerXPersons(QString cid);
     PersonXComputers getPersonXComputers(QString pid);
     bool addPerson(Person pers); //adds person to Person table
@@ -43,8 +44,8 @@ public:
 private:
     bool execQuery(QString query_string); //executes query.
     void createTables(); //creates needed tables for the program
-    QVector<Person> findPersons(QString conditions); //finds persons based on conditions in condition string(they must have an sql syntax)
-    QVector<Computer> findComputers(QString conditions);
+    QSqlQueryModel* findPersons(QString conditions); //finds persons based on conditions in condition string(they must have an sql syntax)
+    QSqlQueryModel* findComputers(QString conditions);
 
     //helpers
     QString ascOrDesc(QString order_by);

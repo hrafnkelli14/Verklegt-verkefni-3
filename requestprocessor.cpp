@@ -107,12 +107,12 @@ QString RequestProcessor::extractId(QString command_string)
     return command_string.section(' ', 1);
 }
 
-QVector<Person> RequestProcessor::outputPersons()
+QSqlQueryModel* RequestProcessor::outputPersons()
 {
     return data.getAllPersons(personOrderingToQStr(), gendertypeToQStr());
 }
 
-QVector<Computer> RequestProcessor::outputComputers()
+QSqlQueryModel* RequestProcessor::outputComputers()
 {
     return data.getAllComputers(computerOrderingToQStr());
 }
@@ -127,16 +127,15 @@ PersonXComputers RequestProcessor::outputPersonXComputers(QString pid)
     return data.getPersonXComputers(pid);
 }
 
-QVector<Person> RequestProcessor::searchPersons(QString search_string)
+QSqlQueryModel* RequestProcessor::searchPersons(QString search_string)
 {
-    QVector<Person> search_results;
-    Person temp;
+    QSqlQueryModel *search_results = new QSqlQueryModel();
     QString search_type = "";
     QString search_query = "";
 
     if(search_string == "*")
     {
-        return outputPersons();
+        //return outputPersons();
     }
 
     int i = 0;
@@ -153,7 +152,7 @@ QVector<Person> RequestProcessor::searchPersons(QString search_string)
 
         if(i > search_string.length())
         {
-            return QVector<Person>();
+            return NULL;
         }
 
         i++;
@@ -166,14 +165,13 @@ QVector<Person> RequestProcessor::searchPersons(QString search_string)
     }
 
     search_query = search_string.section(' ', 1); //finds the search query itself
-    search_results = data.searchPersons(search_type, search_query, personOrderingToQStr(), gendertypeToQStr());
+    //search_results = data.searchPersons(search_type, search_query, personOrderingToQStr(), gendertypeToQStr());
     return search_results;
 }
 
-QVector<Computer> RequestProcessor::searchComputers(QString search_string)
+QSqlQueryModel* RequestProcessor::searchComputers(QString search_string)
 {
-    QVector<Computer> search_results;
-    Computer temp;
+    QSqlQueryModel *search_results = new QSqlQueryModel();
     QString search_type = "";
     QString search_query = "";
 
@@ -196,7 +194,7 @@ QVector<Computer> RequestProcessor::searchComputers(QString search_string)
 
         if(i > search_string.length())
         {
-            return QVector<Computer>();
+            return NULL;
         }
 
         i++;
