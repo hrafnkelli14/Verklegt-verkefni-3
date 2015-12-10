@@ -56,3 +56,10 @@ void MainWindow::on_tableView_customContextMenuRequested(const QPoint &pos)
     menu->addAction(new QAction("Info", this));
     menu->popup(ui->tableView->viewport()->mapToGlobal(pos));
 }
+
+void MainWindow::on_addButton_clicked()
+{
+    PersonEdit add_window;
+    add_window.setModal(true);
+    add_window.exec();
+}

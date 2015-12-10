@@ -22,7 +22,8 @@ SOURCES += main.cpp\
     personxcomputers.cpp \
     relation.cpp \
     requestprocessor.cpp \
-    xmlfile.cpp
+    xmlfile.cpp \
+    personedit.cpp
 
 HEADERS  += mainwindow.h \
     computer.h \
@@ -32,8 +33,10 @@ HEADERS  += mainwindow.h \
     personxcomputers.h \
     relation.h \
     requestprocessor.h \
-    xmlfile.h
+    xmlfile.h \
+    personedit.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    personedit.ui
 
 win32:RC_ICONS += icon.ico

@@ -3,6 +3,7 @@
 
 #include "requestprocessor.h"
 #include <QMainWindow>
+#include "personedit.h"
 
 namespace Ui {
 class MainWindow;
@@ -23,6 +24,8 @@ private slots:
     void on_radioCS_clicked();
 
     void on_tableView_customContextMenuRequested(const QPoint &pos);
+
+    void on_addButton_clicked();
 
 private:
     Ui::MainWindow *ui;
