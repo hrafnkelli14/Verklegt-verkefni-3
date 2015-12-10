@@ -40,6 +40,8 @@ private:
     RequestProcessor* request;
     QTableView* table;
     QPalette def_palette;
+    bool is_edit;
+    QString edit_id;
 };
 
 #endif // COMPUTEREDIT_H

@@ -12,6 +12,9 @@ ComputerEdit::ComputerEdit(QWidget *parent) :
     ui->buildYear->setMaximum(2015);
 
     def_palette = ui->buildYear->palette();
+
+    is_edit = false;
+    edit_id = "";
 }
 
 ComputerEdit::~ComputerEdit()
@@ -43,8 +46,31 @@ void ComputerEdit::on_buttonBox_clicked(QAbstractButton *button)
         else
         {
             comp.setBuilt(false);
-            on_notBuilt_clicked();
         }
+        if(comp.getBuilt() == false || ui->unknownYear->isChecked())
+        {
+            comp.setYear("NULL");
+        }
+        else
+        {
+            comp.setYear(ui->buildYear->text().toStdString());
+        }
+
+        switch(is_edit)
+        {
+        case false:
+            request->addComputer(comp);
+            break;
+        case true:
+            request->editComputer(comp, edit_id);
+            break;
+        }
+
+        QSortFilterProxyModel *proxy_model = new QSortFilterProxyModel();
+        proxy_model->setSourceModel(request->outputPersons());
+        table->setModel(proxy_model);
+        table->hideColumn(0);
+        table->horizontalHeader()->setSortIndicator(-1, Qt::AscendingOrder);
     }
 }
 
