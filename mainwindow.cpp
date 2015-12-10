@@ -80,8 +80,8 @@ void MainWindow::on_addButton_clicked()
     {
         ComputerEdit add_window;
         add_window.setModal(true);
-        //set request
-        //set table
+        add_window.setRequest(&request);
+        add_window.setTable(ui->tableView);
         add_window.exec();
     }
 }
