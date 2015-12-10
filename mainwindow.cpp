@@ -52,7 +52,6 @@ void MainWindow::on_tableView_customContextMenuRequested(const QPoint &pos)
 {
     QModelIndex index = ui->tableView->indexAt(pos);
     curr_index = index;
-    QSignalMapper *mapper = new QSignalMapper(this);
 
     QMenu *menu = new QMenu(this);
     QAction *edit_action = new QAction("Edit", this);
