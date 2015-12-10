@@ -59,6 +59,70 @@
     </rect>
    </property>
   </widget>
+  <widget class="QRadioButton" name="aliveButton">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>40</y>
+     <width>84</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Alive</string>
+   </property>
+   <attribute name="buttonGroup">
+    <string notr="true">livingGroup</string>
+   </attribute>
+  </widget>
+  <widget class="QRadioButton" name="deadButton">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>70</y>
+     <width>84</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Dead</string>
+   </property>
+   <attribute name="buttonGroup">
+    <string notr="true">livingGroup</string>
+   </attribute>
+  </widget>
+  <widget class="QRadioButton" name="maleButton">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>150</y>
+     <width>84</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Male</string>
+   </property>
+   <attribute name="buttonGroup">
+    <string notr="true">genderGroup</string>
+   </attribute>
+  </widget>
+  <widget class="QRadioButton" name="femaleButton">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>180</y>
+     <width>84</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Female</string>
+   </property>
+   <attribute name="buttonGroup">
+    <string notr="true">genderGroup</string>
+   </attribute>
+  </widget>
  </widget>
  <resources/>
  <connections>
@@ -95,4 +159,8 @@
    </hints>
   </connection>
  </connections>
+ <buttongroups>
+  <buttongroup name="livingGroup"/>
+  <buttongroup name="genderGroup"/>
+ </buttongroups>
 </ui>
