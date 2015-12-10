@@ -18,13 +18,15 @@ public:
     explicit PersonEdit(QWidget *parent = 0);
     ~PersonEdit();
 
+    void setRequest(RequestProcessor* _request);
+
 private slots:
     void on_buttonBox_clicked(QAbstractButton *button);
 
 private:
     Ui::PersonEdit *ui;
 
-    RequestProcessor request;
+    RequestProcessor* request;
 };
 
 #endif // PERSONEDIT_H

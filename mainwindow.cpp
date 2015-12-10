@@ -30,6 +30,11 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+RequestProcessor* MainWindow::getRequest()
+{
+    return &request;
+}
+
 void MainWindow::on_radioComp_clicked()
 {
     QSortFilterProxyModel *proxy_model = new QSortFilterProxyModel();
@@ -59,7 +64,9 @@ void MainWindow::on_tableView_customContextMenuRequested(const QPoint &pos)
 
 void MainWindow::on_addButton_clicked()
 {
+    ui->tableView->model()->disconnect();
     PersonEdit add_window;
     add_window.setModal(true);
+    add_window.setRequest(&request);
     add_window.exec();
 }

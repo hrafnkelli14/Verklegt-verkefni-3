@@ -21,6 +21,7 @@ DbManager::DbManager()
 DbManager::~DbManager()
 {
      //Intentionally left empty
+    db.close();
 }
 
 //========PUBLIC FUNCTIONS==========

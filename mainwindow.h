@@ -17,6 +17,8 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+    RequestProcessor* getRequest();
+
 private slots:
 
     void on_radioComp_clicked();
