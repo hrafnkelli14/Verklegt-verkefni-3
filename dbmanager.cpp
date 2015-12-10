@@ -389,7 +389,7 @@ QSqlQueryModel* DbManager::findComputers(QString conditions)
 
     qry->exec("SELECT cID, "
               "name AS Name, "
-              "CASE WHEN year IS NULL THEN 'Unknown' ELSE year END AS 'Build Year', "
+              "CASE WHEN built = 0 THEN 'Not Built' WHEN year IS NULL THEN 'Unknown' ELSE year END AS 'Build Year', "
               "type AS Type, "
               "CASE WHEN built = 1 THEN 'Yes' ELSE 'No' END AS Built "
               "FROM Computers "
