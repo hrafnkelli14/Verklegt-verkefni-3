@@ -96,12 +96,12 @@ void MainWindow::editAction()
     QString id = ui->tableView->model()->data(ui->tableView->model()->index(row,0)).toString();
     Person pers = request.getPerson(id);
 
-    PersonEdit add_window;
-    add_window.setModal(true);
-    add_window.setRequest(&request);
-    add_window.setTable(ui->tableView);
-    add_window.setPerson(pers);
-    add_window.exec();
+    PersonEdit edit_window;
+    edit_window.setModal(true);
+    edit_window.setRequest(&request);
+    edit_window.setTable(ui->tableView);
+    edit_window.setPerson(pers);
+    edit_window.exec();
 }
 
 void MainWindow::deleteAction()
