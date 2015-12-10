@@ -67,7 +67,7 @@ void ComputerEdit::on_buttonBox_clicked(QAbstractButton *button)
         }
 
         QSortFilterProxyModel *proxy_model = new QSortFilterProxyModel();
-        proxy_model->setSourceModel(request->outputPersons());
+        proxy_model->setSourceModel(request->outputComputers());
         table->setModel(proxy_model);
         table->hideColumn(0);
         table->horizontalHeader()->setSortIndicator(-1, Qt::AscendingOrder);
