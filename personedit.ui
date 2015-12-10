@@ -123,7 +123,7 @@
     <string notr="true">genderGroup</string>
    </attribute>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="labelName">
    <property name="geometry">
     <rect>
      <x>60</x>
@@ -136,7 +136,7 @@
     <string>Name:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="labelDOB">
    <property name="geometry">
     <rect>
      <x>10</x>
