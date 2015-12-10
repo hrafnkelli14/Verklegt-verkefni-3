@@ -14,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tableView->setSortingEnabled(true); //enable sorting by clicking on header
     ui->tableView->verticalHeader()->setVisible(false); //hide vertical header
     ui->tableView->hideColumn(0); //hide id column
+    ui->tableView->horizontalHeader()->setSortIndicator(-1, Qt::AscendingOrder);
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows); //select by rows, not columns
     ui->tableView->setContextMenuPolicy(Qt::CustomContextMenu);
     for (int c = 0; c < ui->tableView->horizontalHeader()->count(); ++c) //fill the width of the table window
@@ -37,6 +38,7 @@ void MainWindow::on_radioComp_clicked()
     ui->tableView->setModel(proxy_model);
     showAllRows();
     ui->tableView->hideColumn(0);
+    ui->tableView->horizontalHeader()->setSortIndicator(-1, Qt::AscendingOrder);
 }
 
 void MainWindow::on_radioCS_clicked()
@@ -46,6 +48,7 @@ void MainWindow::on_radioCS_clicked()
     ui->tableView->setModel(proxy_model);
     showAllRows();
     ui->tableView->hideColumn(0);
+    ui->tableView->horizontalHeader()->setSortIndicator(-1, Qt::AscendingOrder);
 }
 
 void MainWindow::on_tableView_customContextMenuRequested(const QPoint &pos)
@@ -93,12 +96,12 @@ void MainWindow::editAction()
     QString id = ui->tableView->model()->data(ui->tableView->model()->index(row,0)).toString();
     Person pers = request.getPerson(id);
 
-    PersonEdit add_window;
-    add_window.setModal(true);
-    add_window.setRequest(&request);
-    add_window.setTable(ui->tableView);
-    add_window.setPerson(pers);
-    add_window.exec();
+    PersonEdit edit_window;
+    edit_window.setModal(true);
+    edit_window.setRequest(&request);
+    edit_window.setTable(ui->tableView);
+    edit_window.setPerson(pers);
+    edit_window.exec();
 }
 
 void MainWindow::deleteAction()
