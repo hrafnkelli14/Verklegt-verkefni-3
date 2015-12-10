@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>669</width>
+    <width>740</width>
     <height>559</height>
    </rect>
   </property>
@@ -19,7 +19,7 @@
      <rect>
       <x>220</x>
       <y>80</y>
-      <width>421</width>
+      <width>491</width>
       <height>381</height>
      </rect>
     </property>
@@ -27,9 +27,9 @@
    <widget class="QRadioButton" name="radioCS">
     <property name="geometry">
      <rect>
-      <x>510</x>
+      <x>540</x>
       <y>30</y>
-      <width>121</width>
+      <width>171</width>
       <height>19</height>
      </rect>
     </property>
@@ -43,9 +43,9 @@
    <widget class="QRadioButton" name="radioComp">
     <property name="geometry">
      <rect>
-      <x>510</x>
+      <x>540</x>
       <y>50</y>
-      <width>84</width>
+      <width>111</width>
       <height>19</height>
      </rect>
     </property>
@@ -101,8 +101,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>669</width>
-     <height>20</height>
+     <width>740</width>
+     <height>31</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuSkil_3">
