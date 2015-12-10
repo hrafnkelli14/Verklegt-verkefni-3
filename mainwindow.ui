@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>584</width>
-    <height>465</height>
+    <width>605</width>
+    <height>513</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>40</y>
+      <y>70</y>
       <width>561</width>
       <height>381</height>
      </rect>
@@ -28,7 +28,7 @@
     <property name="geometry">
      <rect>
       <x>410</x>
-      <y>0</y>
+      <y>10</y>
       <width>171</width>
       <height>19</height>
      </rect>
@@ -44,7 +44,7 @@
     <property name="geometry">
      <rect>
       <x>410</x>
-      <y>20</y>
+      <y>40</y>
       <width>111</width>
       <height>19</height>
      </rect>
@@ -60,7 +60,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>10</y>
+      <y>30</y>
       <width>80</width>
       <height>21</height>
      </rect>
@@ -75,8 +75,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>584</width>
-     <height>20</height>
+     <width>605</width>
+     <height>31</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuSkil_3">
