@@ -104,6 +104,7 @@ void PersonEdit::on_buttonBox_clicked(QAbstractButton *button)
         proxy_model->setSourceModel(request->outputPersons());
         table->setModel(proxy_model);
         table->hideColumn(0);
+        table->horizontalHeader()->setSortIndicator(-1, Qt::AscendingOrder);
     }
 }
 
