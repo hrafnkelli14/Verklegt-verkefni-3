@@ -95,7 +95,8 @@ void ComputerEdit::setComputer(Computer comp)
     else
     {
         ui->notBuilt->setChecked(true);
-        ui->unknownYear->setChecked(true);
+        ui->unknownYear->setChecked(false);
+        ui->unknownYear->setDisabled(true);
         on_unknownYear_clicked(true);
     }
 }
@@ -106,6 +107,7 @@ void ComputerEdit::on_wasBuilt_clicked()
     {
         ui->buildYear->setPalette(def_palette);
         ui->buildYear->setReadOnly(false);
+        ui->unknownYear->setDisabled(false);
     }
 }
 
@@ -117,6 +119,7 @@ void ComputerEdit::on_notBuilt_clicked()
     palette.setColor(QPalette::Text, Qt::black);
     ui->buildYear->setPalette(palette);
     ui->buildYear->setReadOnly(true);
+    ui->unknownYear->setDisabled(true);
 }
 
 void ComputerEdit::on_unknownYear_clicked(bool checked)
