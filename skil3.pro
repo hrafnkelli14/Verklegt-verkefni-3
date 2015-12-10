@@ -24,7 +24,8 @@ SOURCES += main.cpp\
     requestprocessor.cpp \
     xmlfile.cpp \
     personedit.cpp \
-    computeredit.cpp
+    computeredit.cpp \
+    relationwindow.cpp
 
 HEADERS  += mainwindow.h \
     computer.h \
@@ -36,10 +37,12 @@ HEADERS  += mainwindow.h \
     requestprocessor.h \
     xmlfile.h \
     personedit.h \
-    computeredit.h
+    computeredit.h \
+    relationwindow.h
 
 FORMS    += mainwindow.ui \
     personedit.ui \
-    computeredit.ui
+    computeredit.ui \
+    relationwindow.ui
 
 win32:RC_ICONS += icon.ico
