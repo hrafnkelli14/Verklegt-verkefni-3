@@ -35,6 +35,7 @@ void MainWindow::on_radioComp_clicked()
     QSortFilterProxyModel *proxy_model = new QSortFilterProxyModel();
     proxy_model->setSourceModel(request.outputComputers());
     ui->tableView->setModel(proxy_model);
+    showAllRows();
     ui->tableView->hideColumn(0);
 }
 
@@ -43,6 +44,7 @@ void MainWindow::on_radioCS_clicked()
     QSortFilterProxyModel *proxy_model = new QSortFilterProxyModel();
     proxy_model->setSourceModel(request.outputPersons());
     ui->tableView->setModel(proxy_model);
+    showAllRows();
     ui->tableView->hideColumn(0);
 }
 
@@ -115,5 +117,13 @@ void MainWindow::deleteAction()
             request.deleteComputer(id);
         }
         ui->tableView->hideRow(row);
+    }
+}
+
+void MainWindow::showAllRows()
+{
+    for(int i = 0; i<ui->tableView->model()->rowCount(); i++)
+    {
+        ui->tableView->setRowHidden(0, false);
     }
 }

@@ -34,6 +34,7 @@ private slots:
     void deleteAction();
 
 private:
+    void showAllRows();
     Ui::MainWindow *ui;
     RequestProcessor request;
     QModelIndex curr_index;
