@@ -1,14 +1,14 @@
 #include "computeredit.h"
 #include "ui_computeredit.h"
 
-computeredit::computeredit(QWidget *parent) :
+ComputerEdit::ComputerEdit(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::computeredit)
+    ui(new Ui::ComputerEdit)
 {
     ui->setupUi(this);
 }
 
-computeredit::~computeredit()
+ComputerEdit::~ComputerEdit()
 {
     delete ui;
 }

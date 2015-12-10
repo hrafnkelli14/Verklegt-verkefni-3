@@ -4,6 +4,7 @@
 #include "requestprocessor.h"
 #include <QMainWindow>
 #include "personedit.h"
+#include "computeredit.h"
 
 namespace Ui {
 class MainWindow;

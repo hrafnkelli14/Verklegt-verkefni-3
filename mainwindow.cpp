@@ -59,10 +59,20 @@ void MainWindow::on_tableView_customContextMenuRequested(const QPoint &pos)
 
 void MainWindow::on_addButton_clicked()
 {
-    ui->tableView->model()->disconnect();
-    PersonEdit add_window;
-    add_window.setModal(true);
-    add_window.setRequest(&request);
-    add_window.setTable(ui->tableView);
-    add_window.exec();
+    if(ui->radioCS->isChecked())
+    {
+        PersonEdit add_window;
+        add_window.setModal(true);
+        add_window.setRequest(&request);
+        add_window.setTable(ui->tableView);
+        add_window.exec();
+    }
+    else if(ui->radioComp->isChecked())
+    {
+        ComputerEdit add_window;
+        add_window.setModal(true);
+        //set request
+        //set table
+        add_window.exec();
+    }
 }

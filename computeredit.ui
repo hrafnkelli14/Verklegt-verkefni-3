@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>computeredit</class>
- <widget class="QDialog" name="computeredit">
+ <author/>
+ <comment/>
+ <exportmacro/>
+ <class>ComputerEdit</class>
+ <widget name="ComputerEdit" class="QDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,7 +15,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QDialogButtonBox" name="buttonBox">
+  <widget name="buttonBox" class="QDialogButtonBox">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -29,45 +31,14 @@
     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
    </property>
   </widget>
-  <widget class="QRadioButton" name="wasBuilt">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>20</y>
-     <width>119</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Built</string>
-   </property>
-   <attribute name="buttonGroup">
-    <string notr="true">builtGroup</string>
-   </attribute>
-  </widget>
-  <widget class="QRadioButton" name="notBuilt">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>50</y>
-     <width>119</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Not built</string>
-   </property>
-   <attribute name="buttonGroup">
-    <string notr="true">builtGroup</string>
-   </attribute>
-  </widget>
  </widget>
+ <pixmapfunction/>
  <resources/>
  <connections>
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>computeredit</receiver>
+   <receiver>ComputerEdit</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -83,7 +54,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>computeredit</receiver>
+   <receiver>ComputerEdit</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -97,7 +68,4 @@
    </hints>
   </connection>
  </connections>
- <buttongroups>
-  <buttongroup name="builtGroup"/>
- </buttongroups>
 </ui>

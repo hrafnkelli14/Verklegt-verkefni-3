@@ -4,19 +4,19 @@
 #include <QDialog>
 
 namespace Ui {
-class computeredit;
+class ComputerEdit;
 }
 
-class computeredit : public QDialog
+class ComputerEdit : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit computeredit(QWidget *parent = 0);
-    ~computeredit();
+    explicit ComputerEdit(QWidget *parent = 0);
+    ~ComputerEdit();
 
 private:
-    Ui::computeredit *ui;
+    Ui::ComputerEdit *ui;
 };
 
 #endif // COMPUTEREDIT_H
