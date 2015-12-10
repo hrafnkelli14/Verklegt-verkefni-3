@@ -3,6 +3,7 @@
 
 #include "requestprocessor.h"
 #include <QMainWindow>
+#include <QMessageBox>
 #include "personedit.h"
 #include "computeredit.h"
 
@@ -28,9 +29,14 @@ private slots:
 
     void on_addButton_clicked();
 
+    void editAction();
+
+    void deleteAction();
+
 private:
     Ui::MainWindow *ui;
     RequestProcessor request;
+    QModelIndex curr_index;
 };
 
 #endif // MAINWINDOW_H

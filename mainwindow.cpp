@@ -49,12 +49,21 @@ void MainWindow::on_radioCS_clicked()
 void MainWindow::on_tableView_customContextMenuRequested(const QPoint &pos)
 {
     QModelIndex index = ui->tableView->indexAt(pos);
+    curr_index = index;
+    QSignalMapper *mapper = new QSignalMapper(this);
 
     QMenu *menu = new QMenu(this);
-    menu->addAction(new QAction("Edit", this));
-    menu->addAction(new QAction("Delete", this));
-    menu->addAction(new QAction("Info", this));
+    QAction *edit_action = new QAction("Edit", this);
+    connect(edit_action, SIGNAL(triggered()), this, SLOT(editAction()));
+    QAction *delete_action = new QAction("Delete", this);
+    connect(delete_action, SIGNAL(triggered()), this, SLOT(deleteAction()));
+    QAction *info_action = new QAction("Info", this);
+
+    menu->addAction(edit_action);
+    menu->addAction(delete_action);
+    menu->addAction(info_action);
     menu->popup(ui->tableView->viewport()->mapToGlobal(pos));
+
 }
 
 void MainWindow::on_addButton_clicked()
@@ -74,5 +83,37 @@ void MainWindow::on_addButton_clicked()
         //set request
         //set table
         add_window.exec();
+    }
+}
+
+void MainWindow::editAction()
+{
+    PersonEdit add_window;
+    add_window.setModal(true);
+    add_window.setRequest(&request);
+    add_window.setTable(ui->tableView);
+    add_window.exec();
+}
+
+void MainWindow::deleteAction()
+{
+    int row = curr_index.row();
+    QString id = ui->tableView->model()->data(ui->tableView->model()->index(row,0)).toString();
+    QString name = ui->tableView->model()->data(ui->tableView->model()->index(row,1)).toString();
+
+    QMessageBox::StandardButton confirm;
+    confirm = QMessageBox::question(this, "Delete", "Are you sure you want to delete " + name + "?",
+                                    QMessageBox::Yes | QMessageBox::No);
+    if(confirm == QMessageBox::Yes)
+    {
+        if(ui->radioCS->isChecked())
+        {
+            request.deletePerson(id);
+        }
+        else if(ui->radioComp->isChecked())
+        {
+            request.deleteComputer(id);
+        }
+        ui->tableView->hideRow(row);
     }
 }
