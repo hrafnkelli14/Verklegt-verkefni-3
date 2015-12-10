@@ -59,7 +59,7 @@
    <widget class="QPushButton" name="addButton">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>230</x>
       <y>30</y>
       <width>80</width>
       <height>21</height>
@@ -67,6 +67,19 @@
     </property>
     <property name="text">
      <string>Add</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="filterNames">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>30</y>
+      <width>141</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>Filter names</string>
     </property>
    </widget>
   </widget>

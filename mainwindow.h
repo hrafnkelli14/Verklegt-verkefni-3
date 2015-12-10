@@ -33,10 +33,13 @@ private slots:
 
     void deleteAction();
 
+    void on_filterNames_textChanged(const QString &arg1);
+
 private:
     void showAllRows();
     Ui::MainWindow *ui;
     RequestProcessor request;
+    QSortFilterProxyModel *proxy_model;
     QModelIndex curr_index;
 };
 

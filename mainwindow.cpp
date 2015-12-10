@@ -8,15 +8,19 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     //TABLE VIEW
-    QSortFilterProxyModel *proxy_model = new QSortFilterProxyModel();
+    proxy_model = new QSortFilterProxyModel();
     proxy_model->setSourceModel(request.outputPersons());
+    proxy_model->setDynamicSortFilter(true); //allows filtering dynamically
+    proxy_model->setFilterKeyColumn(1); //filter by name
+    proxy_model->setFilterCaseSensitivity(Qt::CaseInsensitive); //filtering is not case sensitive
     ui->tableView->setModel(proxy_model); //Initial table view
     ui->tableView->setSortingEnabled(true); //enable sorting by clicking on header
     ui->tableView->verticalHeader()->setVisible(false); //hide vertical header
     ui->tableView->hideColumn(0); //hide id column
     ui->tableView->horizontalHeader()->setSortIndicator(-1, Qt::AscendingOrder);
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows); //select by rows, not columns
-    ui->tableView->setContextMenuPolicy(Qt::CustomContextMenu);
+    ui->tableView->setContextMenuPolicy(Qt::CustomContextMenu); //allow custom context menu
+    ui->tableView->setAlternatingRowColors(true); //white, grey, white, grey
     for (int c = 0; c < ui->tableView->horizontalHeader()->count(); ++c) //fill the width of the table window
     {
         ui->tableView->horizontalHeader()->setSectionResizeMode(
@@ -33,7 +37,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_radioComp_clicked()
 {
-    QSortFilterProxyModel *proxy_model = new QSortFilterProxyModel();
     proxy_model->setSourceModel(request.outputComputers());
     ui->tableView->setModel(proxy_model);
     showAllRows();
@@ -43,7 +46,6 @@ void MainWindow::on_radioComp_clicked()
 
 void MainWindow::on_radioCS_clicked()
 {
-    QSortFilterProxyModel *proxy_model = new QSortFilterProxyModel();
     proxy_model->setSourceModel(request.outputPersons());
     ui->tableView->setModel(proxy_model);
     showAllRows();
@@ -148,4 +150,9 @@ void MainWindow::showAllRows()
     {
         ui->tableView->setRowHidden(0, false);
     }
+}
+
+void MainWindow::on_filterNames_textChanged(const QString &arg1)
+{
+    proxy_model->setFilterFixedString(arg1);
 }
