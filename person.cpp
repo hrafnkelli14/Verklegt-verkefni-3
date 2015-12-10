@@ -66,6 +66,18 @@ void Person::setId(string _id)
     id = _id;
 }
 
+QDate Person::strToQDate(string date)
+{
+    int day = stoi(date.substr(0,2));
+    int month = stoi(date.substr(3,2));
+    int year = stoi(date.substr(6,4));
+
+    QDate date_check(year, month, day);
+
+    return date_check;
+}
+
+
 //========PRIVATE FUNCTIONS==========
 bool Person::checkDateFormat(string date)
 {
@@ -95,18 +107,6 @@ bool Person::checkDateFormat(string date)
     return true;
 
 }
-
-QDate Person::strToQDate(string date)
-{
-    int day = stoi(date.substr(0,2));
-    int month = stoi(date.substr(3,2));
-    int year = stoi(date.substr(6,4));
-
-    QDate date_check(year, month, day);
-
-    return date_check;
-}
-
 
 //========FRIEND FUNCTIONS==========
 istream& operator >>(istream& ins, Person& person1)

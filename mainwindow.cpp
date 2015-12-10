@@ -90,10 +90,15 @@ void MainWindow::on_addButton_clicked()
 
 void MainWindow::editAction()
 {
+    int row = curr_index.row();
+    QString id = ui->tableView->model()->data(ui->tableView->model()->index(row,0)).toString();
+    Person pers = request.getPerson(id);
+
     PersonEdit add_window;
     add_window.setModal(true);
     add_window.setRequest(&request);
     add_window.setTable(ui->tableView);
+    add_window.setPerson(pers);
     add_window.exec();
 }
 

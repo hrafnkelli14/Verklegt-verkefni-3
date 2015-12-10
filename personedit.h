@@ -21,6 +21,7 @@ public:
 
     void setRequest(RequestProcessor* _request);
     void setTable(QTableView* _table);
+    void setPerson(Person pers);
 
 private slots:
     void on_buttonBox_clicked(QAbstractButton *button);
@@ -35,6 +36,8 @@ private:
     RequestProcessor* request;
     QTableView* table;
     QPalette def_palette;
+    bool is_edit;
+    QString edit_id;
 };
 
 #endif // PERSONEDIT_H

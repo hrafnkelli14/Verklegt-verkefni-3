@@ -12,6 +12,8 @@ PersonEdit::PersonEdit(QWidget *parent) :
     ui->maleButton->setChecked(true);
 
     def_palette = ui->dodEdit->palette();
+    is_edit = false;
+    edit_id = "";
 }
 
 PersonEdit::~PersonEdit()
@@ -27,6 +29,36 @@ void PersonEdit::setRequest(RequestProcessor *_request)
 void PersonEdit::setTable(QTableView *_table)
 {
     table = _table;
+}
+
+void PersonEdit::setPerson(Person pers)
+{
+    is_edit = true;
+    edit_id = pers.getId();
+    QString dod = pers.getDoD();
+    QDate date_of_birth = pers.strToQDate(pers.getDoB().toStdString());
+    QDate date_of_death;
+    QString gender = pers.getGender();
+
+    ui->nameEdit->setText(pers.getName());
+    ui->dobEdit->setDate(date_of_birth);
+    if(dod == "alive")
+    {
+        ui->aliveButton->setChecked(true);
+    }
+    else
+    {
+        date_of_death = pers.strToQDate(dod.toStdString());
+        ui->dodEdit->setDate(date_of_death);
+    }
+    if(gender == "Male")
+    {
+        ui->maleButton->setChecked(true);
+    }
+    else
+    {
+        ui->femaleButton->setChecked(true);
+    }
 }
 
 void PersonEdit::on_buttonBox_clicked(QAbstractButton *button)
@@ -56,7 +88,17 @@ void PersonEdit::on_buttonBox_clicked(QAbstractButton *button)
         {
             pers.setGender("Female");
         }
-        request->addPerson(pers);
+
+        switch(is_edit)
+        {
+        case false:
+            request->addPerson(pers);
+            break;
+        case true:
+            request->editPerson(pers, edit_id);
+            break;
+        }
+
         QSortFilterProxyModel *proxy_model = new QSortFilterProxyModel();
         proxy_model->setSourceModel(request->outputPersons());
         table->setModel(proxy_model);

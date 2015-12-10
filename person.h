@@ -28,6 +28,8 @@ public:
     void setDoD(string dod);
     void setId(string _id);
 
+    QDate strToQDate(string date); //QDate has a nice isValid() function
+
 private:
     string name;
     string gender;
@@ -36,7 +38,6 @@ private:
     string id;
 
     bool checkDateFormat(string date); //needed for input checks (DD/MM/YYYY)
-    QDate strToQDate(string date); //QDate has a nice isValid() function
 
     friend std::istream& operator >>(std::istream& ins, Person& person1);
     friend std::ostream& operator <<(std::ostream& os, Person person1);
