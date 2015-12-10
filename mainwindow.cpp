@@ -95,13 +95,28 @@ void MainWindow::editAction()
     int row = curr_index.row();
     QString id = ui->tableView->model()->data(ui->tableView->model()->index(row,0)).toString();
     Person pers = request.getPerson(id);
+    if(ui->radioCS->isChecked() == true)
+    {
+        Person pers = request.getPerson(id);
 
-    PersonEdit edit_window;
-    edit_window.setModal(true);
-    edit_window.setRequest(&request);
-    edit_window.setTable(ui->tableView);
-    edit_window.setPerson(pers);
-    edit_window.exec();
+        PersonEdit edit_window;
+        edit_window.setModal(true);
+        edit_window.setRequest(&request);
+        edit_window.setTable(ui->tableView);
+        edit_window.setPerson(pers);
+        edit_window.exec();
+    }
+    else if(ui->radioComp->isChecked() == true)
+    {
+        Computer comp = request.getComputer(id);
+
+        ComputerEdit edit_window;
+        edit_window.setModal(true);
+        edit_window.setRequest(&request);
+        edit_window.setTable(ui->tableView);
+        edit_window.setComputer(comp);
+        edit_window.exec();
+    }
 }
 
 void MainWindow::deleteAction()

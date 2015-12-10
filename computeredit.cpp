@@ -74,10 +74,39 @@ void ComputerEdit::on_buttonBox_clicked(QAbstractButton *button)
     }
 }
 
+void ComputerEdit::setComputer(Computer comp)
+{
+    this->setWindowTitle("Edit Computer");
+    is_edit = true;
+    edit_id = comp.getId();
+    bool built = comp.getBuilt();
+    QString year_of_build;
+
+    ui->nameEdit->setText(comp.getName());
+    ui->typeEdit->setText(comp.getType());
+    if(built)
+    {
+        ui->wasBuilt->setChecked(true);
+        if(comp.getYear() == "NULL")
+        {
+            ui->unknownYear->setChecked(true);
+        }
+    }
+    else
+    {
+        ui->notBuilt->setChecked(true);
+        ui->unknownYear->setChecked(true);
+        on_unknownYear_clicked(true);
+    }
+}
+
 void ComputerEdit::on_wasBuilt_clicked()
 {
-    ui->buildYear->setPalette(def_palette);
-    ui->buildYear->setReadOnly(false);
+    if(ui->unknownYear->isChecked() == false)
+    {
+        ui->buildYear->setPalette(def_palette);
+        ui->buildYear->setReadOnly(false);
+    }
 }
 
 void ComputerEdit::on_notBuilt_clicked()
@@ -101,7 +130,7 @@ void ComputerEdit::on_unknownYear_clicked(bool checked)
         ui->buildYear->setPalette(palette);
         ui->buildYear->setReadOnly(true);
     }
-    else
+    else if(ui->wasBuilt->isChecked() == true)
     {
         ui->buildYear->setPalette(def_palette);
         ui->buildYear->setReadOnly(false);

@@ -46,6 +46,7 @@ void PersonEdit::setPerson(Person pers)
     if(dod == "alive")
     {
         ui->aliveButton->setChecked(true);
+        on_aliveButton_clicked();
     }
     else
     {
