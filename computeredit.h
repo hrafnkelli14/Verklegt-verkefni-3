@@ -22,6 +22,17 @@ public:
     void setRequest(RequestProcessor* _request);
     void setTable(QTableView* _table);
 
+private slots:
+    void on_buttonBox_clicked(QAbstractButton *button);
+
+    void on_wasBuilt_clicked();
+
+    void on_notBuilt_clicked();
+
+
+
+
+    void on_unknownYear_clicked(bool checked);
 
 private:
     Ui::ComputerEdit *ui;

@@ -61,7 +61,7 @@
     <string notr="true">builtGroup</string>
    </attribute>
   </widget>
-  <widget class="QLabel" name="labelName">
+  <widget class="QLabel" name="nameLabel">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -74,7 +74,7 @@
     <string>Name:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="labelType">
+  <widget class="QLabel" name="typeLabel">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -87,7 +87,7 @@
     <string>Type:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="editName">
+  <widget class="QLineEdit" name="nameEdit">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -97,7 +97,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="editType">
+  <widget class="QLineEdit" name="typeEdit">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -107,7 +107,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="labelBuild">
+  <widget class="QLabel" name="buildlabel">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -130,7 +130,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QCheckBox" name="checkBox">
+  <widget class="QCheckBox" name="unknownYear">
    <property name="geometry">
     <rect>
      <x>210</x>
