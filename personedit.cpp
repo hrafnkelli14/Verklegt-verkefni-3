@@ -33,6 +33,7 @@ void PersonEdit::setTable(QTableView *_table)
 
 void PersonEdit::setPerson(Person pers)
 {
+    this->setWindowTitle("Edit Person");
     is_edit = true;
     edit_id = pers.getId();
     QString dod = pers.getDoD();

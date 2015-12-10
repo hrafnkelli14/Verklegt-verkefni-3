@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Add Person</string>
   </property>
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
@@ -199,7 +199,7 @@
   </connection>
  </connections>
  <buttongroups>
-  <buttongroup name="livingGroup"/>
   <buttongroup name="genderGroup"/>
+  <buttongroup name="livingGroup"/>
  </buttongroups>
 </ui>
