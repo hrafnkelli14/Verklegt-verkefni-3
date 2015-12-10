@@ -22,6 +22,7 @@ public:
     void setRequest(RequestProcessor* _request);
     void setTable(QTableView* _table);
     void setPerson(Person pers);
+    void setProxyModel(QSortFilterProxyModel* _proxy_model);
 
 private slots:
     void on_buttonBox_clicked(QAbstractButton *button);
@@ -35,6 +36,7 @@ private:
 
     RequestProcessor* request;
     QTableView* table;
+    QSortFilterProxyModel* proxy_model;
     QPalette def_palette;
     bool is_edit;
     QString edit_id;

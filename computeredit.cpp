@@ -32,6 +32,11 @@ void ComputerEdit::setTable(QTableView *_table)
     table = _table;
 }
 
+void ComputerEdit::setProxyModel(QSortFilterProxyModel *_proxy_model)
+{
+    proxy_model = _proxy_model;
+}
+
 void ComputerEdit::on_buttonBox_clicked(QAbstractButton *button)
 {
     if(button == ui->buttonBox->button(QDialogButtonBox::Ok))
@@ -66,7 +71,6 @@ void ComputerEdit::on_buttonBox_clicked(QAbstractButton *button)
             break;
         }
 
-        QSortFilterProxyModel *proxy_model = new QSortFilterProxyModel();
         proxy_model->setSourceModel(request->outputComputers());
         table->setModel(proxy_model);
         table->hideColumn(0);

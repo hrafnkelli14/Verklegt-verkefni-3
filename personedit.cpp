@@ -31,6 +31,11 @@ void PersonEdit::setTable(QTableView *_table)
     table = _table;
 }
 
+void PersonEdit::setProxyModel(QSortFilterProxyModel *_proxy_model)
+{
+    proxy_model = _proxy_model;
+}
+
 void PersonEdit::setPerson(Person pers)
 {
     this->setWindowTitle("Edit Person");
@@ -101,7 +106,6 @@ void PersonEdit::on_buttonBox_clicked(QAbstractButton *button)
             break;
         }
 
-        QSortFilterProxyModel *proxy_model = new QSortFilterProxyModel();
         proxy_model->setSourceModel(request->outputPersons());
         table->setModel(proxy_model);
         table->hideColumn(0);

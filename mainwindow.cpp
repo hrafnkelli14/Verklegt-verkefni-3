@@ -80,6 +80,7 @@ void MainWindow::on_addButton_clicked()
         add_window.setModal(true);
         add_window.setRequest(&request);
         add_window.setTable(ui->tableView);
+        add_window.setProxyModel(proxy_model);
         add_window.exec();
     }
     else if(ui->radioComp->isChecked())
@@ -88,6 +89,7 @@ void MainWindow::on_addButton_clicked()
         add_window.setModal(true);
         add_window.setRequest(&request);
         add_window.setTable(ui->tableView);
+        add_window.setProxyModel(proxy_model);
         add_window.exec();
     }
 }
@@ -105,6 +107,7 @@ void MainWindow::editAction()
         edit_window.setModal(true);
         edit_window.setRequest(&request);
         edit_window.setTable(ui->tableView);
+        edit_window.setProxyModel(proxy_model);
         edit_window.setPerson(pers);
         edit_window.exec();
     }
@@ -116,6 +119,7 @@ void MainWindow::editAction()
         edit_window.setModal(true);
         edit_window.setRequest(&request);
         edit_window.setTable(ui->tableView);
+        edit_window.setProxyModel(proxy_model);
         edit_window.setComputer(comp);
         edit_window.exec();
     }
