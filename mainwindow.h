@@ -42,6 +42,7 @@ private slots:
 
     void relateAction();
 
+    void exitAction();
 private:
 
     Ui::MainWindow *ui;

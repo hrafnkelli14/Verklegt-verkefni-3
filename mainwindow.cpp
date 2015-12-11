@@ -29,7 +29,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->radioCS->setChecked(true); //Initial radio button check
 
+    //MENUBAR
     connect(ui->actionAbout, SIGNAL(triggered()), this, SLOT(aboutAction())); //connect about window to menubar
+    connect(ui->actionExit, SIGNAL(triggered()), this, SLOT(exitAction()));
 }
 
 MainWindow::~MainWindow()
@@ -179,4 +181,9 @@ void MainWindow::relateAction()
     RelationWindow rw;
     rw.setModal(true);
     rw.exec();
+}
+
+void MainWindow::exitAction()
+{
+    this->close();
 }

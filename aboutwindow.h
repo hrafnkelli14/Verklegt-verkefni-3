@@ -2,6 +2,11 @@
 #define ABOUTWINDOW_H
 
 #include <QDialog>
+#include <QNetworkProxyFactory>
+#include <QtWebKit/QWebElement>
+#include <QtWebKit/QtWebKit>
+#include <QtWebKitWidgets/QWebPage>
+#include <QtNetwork>
 
 namespace Ui {
 class AboutWindow;
@@ -18,8 +23,11 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_pushButton_2_clicked();
+
 private:
     Ui::AboutWindow *ui;
+    int easter_clicked;
 };
 
 #endif // ABOUTWINDOW_H

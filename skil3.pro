@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += sql core gui
+QT       += sql core gui network webkit webkitwidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 

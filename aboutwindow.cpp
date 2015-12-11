@@ -6,6 +6,8 @@ AboutWindow::AboutWindow(QWidget *parent) :
     ui(new Ui::AboutWindow)
 {
     ui->setupUi(this);
+    easter_clicked = 0;
+    ui->webView->hide();
 }
 
 AboutWindow::~AboutWindow()
@@ -16,4 +18,17 @@ AboutWindow::~AboutWindow()
 void AboutWindow::on_pushButton_clicked()
 {
     this->close();
+}
+
+void AboutWindow::on_pushButton_2_clicked()
+{
+    easter_clicked++;
+    if(easter_clicked == 5)
+    {
+        ui->webView->show();
+        QNetworkProxyFactory::setUseSystemConfiguration(true);
+        QWebSettings::globalSettings()->setAttribute(QWebSettings::PluginsEnabled, true);
+        QWebSettings::globalSettings()->setAttribute(QWebSettings::AutoLoadImages, true);
+        ui->webView->load(QUrl("http://www.dailymotion.com/embed/video/x2ey36?autoplay"));
+    }
 }
