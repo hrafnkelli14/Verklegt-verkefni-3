@@ -32,7 +32,7 @@
   <widget class="QTableView" name="relatedTable">
    <property name="geometry">
     <rect>
-     <x>380</x>
+     <x>40</x>
      <y>50</y>
      <width>221</width>
      <height>291</height>
@@ -42,7 +42,7 @@
   <widget class="QTableView" name="nRelatedTable">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>380</x>
      <y>50</y>
      <width>221</width>
      <height>291</height>
