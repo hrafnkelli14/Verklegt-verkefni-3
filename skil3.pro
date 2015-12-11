@@ -26,7 +26,8 @@ SOURCES += main.cpp\
     personedit.cpp \
     computeredit.cpp \
     relationwindow.cpp \
-    aboutwindow.cpp
+    aboutwindow.cpp \
+    errormessage.cpp
 
 HEADERS  += mainwindow.h \
     computer.h \
@@ -40,12 +41,14 @@ HEADERS  += mainwindow.h \
     personedit.h \
     computeredit.h \
     relationwindow.h \
-    aboutwindow.h
+    aboutwindow.h \
+    errormessage.h
 
 FORMS    += mainwindow.ui \
     personedit.ui \
     computeredit.ui \
     relationwindow.ui \
-    aboutwindow.ui
+    aboutwindow.ui \
+    errormessage.ui
 
 win32:RC_ICONS += icon.ico
