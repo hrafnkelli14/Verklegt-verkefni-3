@@ -8,13 +8,16 @@ PersonEdit::PersonEdit(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    def_stylesheet = ui->nameEdit->styleSheet();
+    def_palette = ui->dodEdit->palette();
+
     ui->deadButton->setChecked(true);
     ui->maleButton->setChecked(true);
 
     prepareWarningIcon();
+    ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
+    ui->nameEdit->setStyleSheet("border: 1px solid red");
 
-    def_stylesheet = ui->nameEdit->styleSheet();
-    def_palette = ui->dodEdit->palette();
     is_edit = false;
     edit_id = "";
 }
@@ -48,6 +51,10 @@ void PersonEdit::setPerson(Person pers)
     QDate date_of_birth = pers.strToQDate(pers.getDoB().toStdString());
     QDate date_of_death;
     QString gender = pers.getGender();
+
+    ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(true);
+    ui->warningIcon->hide();
+    ui->nameEdit->setStyleSheet(def_stylesheet);
 
     ui->nameEdit->setText(pers.getName());
     ui->dobEdit->setDate(date_of_birth);
@@ -153,7 +160,6 @@ void PersonEdit::prepareWarningIcon()
     QStyle *style = QApplication::style();
     QIcon warning_icon = style->standardIcon(QStyle::SP_MessageBoxWarning, 0, this);
     ui->warningIcon->setPixmap(warning_icon.pixmap(20));
-    ui->warningIcon->hide();
 }
 
 bool PersonEdit::checkInput(const QString &input)

@@ -7,16 +7,20 @@ ComputerEdit::ComputerEdit(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    def_stylesheet = ui->nameEdit->styleSheet();
+    def_palette = ui->buildYear->palette();
+
     ui->wasBuilt->setChecked(true);
     ui->buildYear->setMinimum(0);
     ui->buildYear->setMaximum(2015);
 
-    def_stylesheet = ui->nameEdit->styleSheet();
-    def_palette = ui->buildYear->palette();
+    ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
+    ui->nameEdit->setStyleSheet("border: 1px solid red");
+    ui->typeEdit->setStyleSheet("border: 1px solid red");
 
     prepareWarningIcons();
-    valid_name = true;
-    valid_type = true;
+    valid_name = false;
+    valid_type = false;
 
     is_edit = false;
     edit_id = "";
@@ -91,6 +95,12 @@ void ComputerEdit::setComputer(Computer comp)
     bool built = comp.getBuilt();
     QString year_of_build;
 
+    ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(true);
+    ui->nameEdit->setStyleSheet(def_stylesheet);
+    ui->typeEdit->setStyleSheet(def_stylesheet);
+    ui->nameWarning->hide();
+    ui->typeWarning->hide();
+
     ui->nameEdit->setText(comp.getName());
     ui->typeEdit->setText(comp.getType());
     if(built)
@@ -154,9 +164,7 @@ void ComputerEdit::prepareWarningIcons()
     QStyle *style = QApplication::style();
     QIcon warning_icon = style->standardIcon(QStyle::SP_MessageBoxWarning, 0, this);
     ui->nameWarning->setPixmap(warning_icon.pixmap(20));
-    ui->nameWarning->hide();
     ui->typeWarning->setPixmap(warning_icon.pixmap(20));
-    ui->typeWarning->hide();
 }
 
 bool ComputerEdit::checkInput(const QString &input)
