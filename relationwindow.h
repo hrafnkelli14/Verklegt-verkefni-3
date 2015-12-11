@@ -23,8 +23,11 @@ public:
 
 private:
     void hideColumns();
+    void prepareTables();
 
     char type;
+    Computer curr_comp;
+    Person curr_pers;
     QSortFilterProxyModel *related_proxy;
     QSortFilterProxyModel *n_related_proxy;
     RequestProcessor *request;

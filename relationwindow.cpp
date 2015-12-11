@@ -32,25 +32,19 @@ void RelationWindow::setRequest(RequestProcessor *_request)
 void RelationWindow::setPerson(Person pers)
 {
     type = 'p';
+    curr_pers = pers;
     related_proxy->setSourceModel(request->outputPersonXComputers(pers.getId()));
     n_related_proxy->setSourceModel(request->outputNPersonXComputers(pers.getId()));
-    ui->relatedTable->setModel(related_proxy);
-    ui->nRelatedTable->setModel(n_related_proxy);
-    hideColumns();
-    ui->relatedTable->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
-    ui->nRelatedTable->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
+    prepareTables();
 }
 
 void RelationWindow::setComputer(Computer comp)
 {
     type = 'c';
+    curr_comp = comp;
     related_proxy->setSourceModel(request->outputComputerXPersons(comp.getId()));
     n_related_proxy->setSourceModel(request->outputNComputerXPersons(comp.getId()));
-    ui->relatedTable->setModel(related_proxy);
-    ui->nRelatedTable->setModel(n_related_proxy);
-    hideColumns();
-    ui->relatedTable->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
-    ui->nRelatedTable->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
+    prepareTables();
 }
 
 void RelationWindow::hideColumns()
@@ -63,4 +57,15 @@ void RelationWindow::hideColumns()
     ui->nRelatedTable->hideColumn(2);
     ui->nRelatedTable->hideColumn(3);
     ui->nRelatedTable->hideColumn(4);
+}
+
+void RelationWindow::prepareTables()
+{
+    related_proxy->sourceModel()->setHeaderData(1, Qt::Horizontal, tr("Related to"));
+    n_related_proxy->sourceModel()->setHeaderData(1, Qt::Horizontal, tr("Unrelated to"));
+    ui->relatedTable->setModel(related_proxy);
+    ui->nRelatedTable->setModel(n_related_proxy);
+    hideColumns();
+    ui->relatedTable->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
+    ui->nRelatedTable->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
 }
