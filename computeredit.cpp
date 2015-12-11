@@ -111,8 +111,8 @@ void ComputerEdit::on_wasBuilt_clicked()
     {
         ui->buildYear->setPalette(def_palette);
         ui->buildYear->setReadOnly(false);
-        ui->unknownYear->setDisabled(false);
     }
+    ui->unknownYear->setDisabled(false);
 }
 
 void ComputerEdit::on_notBuilt_clicked()
