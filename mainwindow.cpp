@@ -28,11 +28,21 @@ MainWindow::MainWindow(QWidget *parent) :
     }
 
     ui->radioCS->setChecked(true); //Initial radio button check
+
+    connect(ui->actionAbout, SIGNAL(triggered()), this, SLOT(aboutAction())); //connect about window to menubar
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::showAllRows()
+{
+    for(int i = 0; i<ui->tableView->model()->rowCount(); i++)
+    {
+        ui->tableView->setRowHidden(0, false);
+    }
 }
 
 void MainWindow::on_radioComp_clicked()
@@ -148,15 +158,14 @@ void MainWindow::deleteAction()
     }
 }
 
-void MainWindow::showAllRows()
-{
-    for(int i = 0; i<ui->tableView->model()->rowCount(); i++)
-    {
-        ui->tableView->setRowHidden(0, false);
-    }
-}
-
 void MainWindow::on_filterNames_textChanged(const QString &arg1)
 {
     proxy_model->setFilterFixedString(arg1);
+}
+
+void MainWindow::aboutAction()
+{
+    AboutWindow about;
+    about.setModal(true);
+    about.exec();
 }

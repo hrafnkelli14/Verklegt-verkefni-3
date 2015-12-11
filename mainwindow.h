@@ -6,6 +6,7 @@
 #include <QMessageBox>
 #include "personedit.h"
 #include "computeredit.h"
+#include "aboutwindow.h"
 
 namespace Ui {
 class MainWindow;
@@ -18,6 +19,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    void showAllRows();
 
 private slots:
 
@@ -35,8 +37,10 @@ private slots:
 
     void on_filterNames_textChanged(const QString &arg1);
 
+    void aboutAction();
+
 private:
-    void showAllRows();
+
     Ui::MainWindow *ui;
     RequestProcessor request;
     QSortFilterProxyModel *proxy_model;

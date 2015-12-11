@@ -56,7 +56,7 @@ p, li { white-space: pre-wrap; }
     </rect>
    </property>
    <property name="text">
-    <string>Ok</string>
+    <string>OK</string>
    </property>
   </widget>
  </widget>
