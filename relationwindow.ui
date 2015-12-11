@@ -75,6 +75,32 @@
     <string>&lt;-------</string>
    </property>
   </widget>
+  <widget class="QLineEdit" name="filterNames">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>20</y>
+     <width>141</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>Filter names</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="filterNames_2">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>20</y>
+     <width>141</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>Filter names</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections>
