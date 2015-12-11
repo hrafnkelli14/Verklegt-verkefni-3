@@ -11,7 +11,12 @@ ComputerEdit::ComputerEdit(QWidget *parent) :
     ui->buildYear->setMinimum(0);
     ui->buildYear->setMaximum(2015);
 
+    def_stylesheet = ui->nameEdit->styleSheet();
     def_palette = ui->buildYear->palette();
+
+    prepareWarningIcons();
+    valid_name = true;
+    valid_type = true;
 
     is_edit = false;
     edit_id = "";
@@ -142,4 +147,106 @@ void ComputerEdit::on_unknownYear_clicked(bool checked)
         ui->buildYear->setPalette(def_palette);
         ui->buildYear->setReadOnly(false);
     }
+}
+
+void ComputerEdit::prepareWarningIcons()
+{
+    QStyle *style = QApplication::style();
+    QIcon warning_icon = style->standardIcon(QStyle::SP_MessageBoxWarning, 0, this);
+    ui->nameWarning->setPixmap(warning_icon.pixmap(20));
+    ui->nameWarning->hide();
+    ui->typeWarning->setPixmap(warning_icon.pixmap(20));
+    ui->typeWarning->hide();
+}
+
+bool ComputerEdit::checkInput(const QString &input)
+{
+    if(input.isEmpty())
+    {
+        return false;
+    }
+
+    for(int i = 0; i < input.size(); i++)
+    {
+        if(!checkChar(input[i]))
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+bool ComputerEdit::checkChar(const QChar &ch)
+{
+    if(ch.isLetterOrNumber())
+    {
+        return true;
+    }
+    else if(ch.isSpace())
+    {
+        return true;
+    }
+    else if(ch == '.')
+    {
+        return true;
+    }
+    else if(ch == '-')
+    {
+        return true;
+    }
+    else if(ch == '\'')
+    {
+        return true;
+    }
+
+    return false;
+}
+
+void ComputerEdit::isOk()
+{
+    if(valid_name && valid_type)
+    {
+        ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(true);
+    }
+    else
+    {
+        ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
+    }
+}
+
+void ComputerEdit::on_nameEdit_textEdited(const QString &arg1)
+{
+    if(!checkInput(arg1))
+    {
+        valid_name = false;
+        ui->nameWarning->show();
+        ui->nameEdit->setStyleSheet("border: 1px solid red");
+    }
+    else
+    {
+        valid_name = true;
+        ui->nameWarning->hide();
+        ui->nameEdit->setStyleSheet(def_stylesheet);
+    }
+
+    isOk();
+}
+
+void ComputerEdit::on_typeEdit_textEdited(const QString &arg1)
+{
+    if(!checkInput(arg1))
+    {
+        valid_type = false;
+        ui->typeWarning->show();
+        ui->typeEdit->setStyleSheet("border: 1px solid red");
+    }
+    else
+    {
+        valid_type = true;
+        ui->typeWarning->hide();
+        ui->typeEdit->setStyleSheet(def_stylesheet);
+    }
+
+    isOk();
 }

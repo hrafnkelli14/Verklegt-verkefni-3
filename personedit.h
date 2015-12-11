@@ -31,9 +31,14 @@ private slots:
 
     void on_deadButton_clicked();
 
-    void on_nameEdit_textChanged(const QString &arg1);
+    void on_nameEdit_textEdited(const QString &arg1);
 
 private:
+    void prepareWarningIcon();
+    bool checkInput(const QString &input);
+    bool checkChar(const QChar &ch);
+    QString def_stylesheet;
+
     Ui::PersonEdit *ui;
 
     RequestProcessor* request;

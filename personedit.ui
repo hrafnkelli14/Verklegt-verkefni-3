@@ -149,7 +149,7 @@
     <string>Date of birth:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="labelDOD">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -160,6 +160,25 @@
    </property>
    <property name="text">
     <string>Date of death:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="warningIcon">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>40</y>
+     <width>41</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Name is empty or contains illegal characters.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="toolTipDuration">
+    <number>-1</number>
+   </property>
+   <property name="text">
+    <string>Warning</string>
    </property>
   </widget>
  </widget>

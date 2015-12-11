@@ -30,12 +30,24 @@ private slots:
     void on_notBuilt_clicked();
     void on_unknownYear_clicked(bool checked);
 
+    void on_nameEdit_textEdited(const QString &arg1);
+
+    void on_typeEdit_textEdited(const QString &arg1);
+
 private:
+    void prepareWarningIcons();
+    bool checkInput(const QString &input);
+    bool checkChar(const QChar &ch);
+    void isOk();
+    bool valid_name;
+    bool valid_type;
+
     Ui::ComputerEdit *ui;
 
     RequestProcessor* request;
     QTableView* table;
     QSortFilterProxyModel* proxy_model;
+    QString def_stylesheet;
     QPalette def_palette;
     bool is_edit;
     QString edit_id;

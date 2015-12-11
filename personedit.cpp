@@ -11,6 +11,9 @@ PersonEdit::PersonEdit(QWidget *parent) :
     ui->deadButton->setChecked(true);
     ui->maleButton->setChecked(true);
 
+    prepareWarningIcon();
+
+    def_stylesheet = ui->nameEdit->styleSheet();
     def_palette = ui->dodEdit->palette();
     is_edit = false;
     edit_id = "";
@@ -95,13 +98,6 @@ void PersonEdit::on_buttonBox_clicked(QAbstractButton *button)
         {
             pers.setGender("Female");
         }
-        string temp = pers.getName().toStdString();
-        /*if(temp.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890-. "))
-        {
-            ErrorMessage e;
-            e.open();
-
-        }*/
 
         switch(is_edit)
         {
@@ -136,7 +132,70 @@ void PersonEdit::on_deadButton_clicked()
     ui->dodEdit->setReadOnly(false);
 }
 
-void PersonEdit::on_nameEdit_textChanged(const QString &arg1)
+void PersonEdit::on_nameEdit_textEdited(const QString &arg1)
 {
+    if(!checkInput(arg1))
+    {
+        ui->warningIcon->show();
+        ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
+        ui->nameEdit->setStyleSheet("border: 1px solid red");
+    }
+    else
+    {
+        ui->warningIcon->hide();
+        ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(true);
+        ui->nameEdit->setStyleSheet(def_stylesheet);
+    }
+}
 
+void PersonEdit::prepareWarningIcon()
+{
+    QStyle *style = QApplication::style();
+    QIcon warning_icon = style->standardIcon(QStyle::SP_MessageBoxWarning, 0, this);
+    ui->warningIcon->setPixmap(warning_icon.pixmap(20));
+    ui->warningIcon->hide();
+}
+
+bool PersonEdit::checkInput(const QString &input)
+{
+    if(input.isEmpty())
+    {
+        return false;
+    }
+
+    for(int i = 0; i < input.size(); i++)
+    {
+        if(!checkChar(input[i]))
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+bool PersonEdit::checkChar(const QChar &ch)
+{
+    if(ch.isLetterOrNumber())
+    {
+        return true;
+    }
+    else if(ch.isSpace())
+    {
+        return true;
+    }
+    else if(ch == '.')
+    {
+        return true;
+    }
+    else if(ch == '-')
+    {
+        return true;
+    }
+    else if(ch == '\'')
+    {
+        return true;
+    }
+
+    return false;
 }

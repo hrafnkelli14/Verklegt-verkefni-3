@@ -143,6 +143,38 @@
     <string>Unknown</string>
    </property>
   </widget>
+  <widget class="QLabel" name="nameWarning">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>50</y>
+     <width>51</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Name is empty or contains illegal characters.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="text">
+    <string>Warning</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="typeWarning">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>110</y>
+     <width>51</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Type is empty or contains illegal characters.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="text">
+    <string>Warning</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections>
