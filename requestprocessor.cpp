@@ -116,14 +116,24 @@ QSqlQueryModel* RequestProcessor::outputComputers()
     return data.getAllComputers();
 }
 
-ComputerXPersons RequestProcessor::outputComputerXPersons(QString cid)
+QSqlQueryModel* RequestProcessor::outputComputerXPersons(QString cid)
 {
     return data.getComputerXPersons(cid);
 }
 
-PersonXComputers RequestProcessor::outputPersonXComputers(QString pid)
+QSqlQueryModel* RequestProcessor::outputPersonXComputers(QString pid)
 {
     return data.getPersonXComputers(pid);
+}
+
+QSqlQueryModel* RequestProcessor::outputNComputerXPersons(QString cid)
+{
+    return data.getNComputerXPersons(cid);
+}
+
+QSqlQueryModel* RequestProcessor::outputNPersonXComputers(QString pid)
+{
+    return data.getNPersonXComputers(pid);
 }
 
 QSqlQueryModel* RequestProcessor::searchPersons(QString search_string)

@@ -178,8 +178,22 @@ void MainWindow::aboutAction()
 
 void MainWindow::relateAction()
 {
+    int row = curr_index.row();
+    QString id = ui->tableView->model()->data(ui->tableView->model()->index(row,0)).toString();
+
     RelationWindow rw;
     rw.setModal(true);
+    rw.setRequest(&request);
+    if(ui->radioCS->isChecked())
+    {
+        Person pers = request.getPerson(id);
+        rw.setPerson(pers);
+    }
+    else
+    {
+        Computer comp = request.getComputer(id);
+        rw.setComputer(comp);
+    }
     rw.exec();
 }
 

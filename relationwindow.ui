@@ -29,13 +29,23 @@
     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
    </property>
   </widget>
-  <widget class="QTableView" name="tableView">
+  <widget class="QTableView" name="relatedTable">
    <property name="geometry">
     <rect>
-     <x>80</x>
+     <x>30</x>
      <y>120</y>
-     <width>461</width>
-     <height>251</height>
+     <width>256</width>
+     <height>192</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTableView" name="nRelatedTable">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>120</y>
+     <width>256</width>
+     <height>192</height>
     </rect>
    </property>
   </widget>

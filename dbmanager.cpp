@@ -56,74 +56,119 @@ QSqlQueryModel* DbManager::searchComputers(QString search_type, QString search_q
                          "ORDER BY " + ascOrDesc(order_by));
 }
 
-ComputerXPersons DbManager::getComputerXPersons(QString cid)
+QSqlQueryModel* DbManager::getComputerXPersons(QString cid)
 {
     db.open();
-    QSqlQuery qry;
-    QVector<Person> pers;
-    QVector<QString> pids;
-    ComputerXPersons cxp;
+    QSqlQuery *qry = new QSqlQuery();
+    QSqlQueryModel *model = new QSqlQueryModel();
 
-    qry.exec("PRAGMA foreign_keys=ON");
+    qry->exec("PRAGMA foreign_keys=ON");
 
-    qry.exec("SELECT pID "
-             "FROM ComputersXPersons "
-             "WHERE cID = " + cid);
+    qry->exec("SELECT RP.pID AS 'id', "
+              "RP.name AS Name, "
+              "RP.gender AS Gender, "
+              "RP.dob AS 'Date of Birth', "
+              "RP.dod AS 'Date of Death' "
+              "FROM (SELECT Persons.pID, name, gender, dob, dod "
+                    "FROM ComputersXPersons "
+                    "INNER JOIN Persons ON Persons.pID = ComputersXPersons.pID "
+                    "WHERE cID = " + cid + ") AS RP");
 
-    int i_pid = qry.record().indexOf("pID");
-
-    while(qry.next())
-    {
-        pids.push_back(qry.value(i_pid).toString());
-    }
-
-    for(int i = 0; i < pids.size(); i++)
-    {
-        //pers.push_back(findPersons("WHERE pID = " + pids[i]).first());
-        //look at later
-    }
+    model->setQuery(*qry);
 
     db.close();
 
-    //cxp.setComputer(findComputers("WHERE cID = " + cid).first());
-    cxp.setPersons(pers);
+    return model;
 
-    return cxp;
 }
 
-PersonXComputers DbManager::getPersonXComputers(QString pid)
+QSqlQueryModel* DbManager::getPersonXComputers(QString pid)
 {
     db.open();
-    QSqlQuery qry;
-    QVector<Computer> comps;
-    QVector<QString> cids;
-    PersonXComputers pxc;
+    QSqlQuery *qry = new QSqlQuery();
+    QSqlQueryModel *model = new QSqlQueryModel();
 
-    qry.exec("PRAGMA foreign_keys=ON");
+    qry->exec("PRAGMA foreign_keys=ON");
 
-    qry.exec("SELECT cID "
-             "FROM ComputersXPersons "
-             "WHERE pID = " + pid);
+    qry->exec("SELECT RP.cID AS 'id', "
+              "RP.name AS Name, "
+              "CASE WHEN RP.built = 0 THEN 'Not Built' WHEN RP.year IS NULL THEN 'Unknown' ELSE RP.year END AS 'Build Year', "
+              "RP.type AS Type, "
+              "CASE WHEN RP.built = 1 THEN 'Yes' ELSE 'No' END AS Built "
+              "FROM (SELECT Computers.cID, name, year, built, type "
+                    "FROM ComputersXPersons "
+                    "INNER JOIN Computers ON Computers.cID = ComputersXPersons.cID "
+                    "WHERE pID = " + pid + ") AS RP");
 
-    int i_cid = qry.record().indexOf("cID");
-
-    while(qry.next())
-    {
-        cids.push_back(qry.value(i_cid).toString());
-    }
-
-    for(int i = 0; i < cids.size(); i++)
-    {
-        //comps.push_back(findComputers("WHERE cID = " + cids[i]).first())
-        //TODO
-    }
+    model->setQuery(*qry);
 
     db.close();
 
-    //pxc.setPerson(findPersons("WHERE pID = " + pid).first());
-    pxc.setComputers(comps);
+    return model;
+}
 
-    return pxc;
+QSqlQueryModel* DbManager::getNComputerXPersons(QString cid)
+{
+    db.open();
+    QSqlQuery *qry = new QSqlQuery();
+    QSqlQueryModel *model = new QSqlQueryModel();
+
+    qry->exec("PRAGMA foreign_keys=ON");
+
+    qry->exec("SELECT pID AS 'id', "
+              "name AS Name, "
+              "gender AS Gender, "
+              "dob AS 'Date of Birth', "
+              "CASE WHEN dod = 'alive' THEN 'Still alive' ELSE dod END AS 'Date of Death' "
+              "FROM Persons "
+              "EXCEPT "
+              "SELECT RP.pID AS 'id', "
+              "RP.name AS Name, "
+              "RP.gender AS Gender, "
+              "RP.dob AS 'Date of Birth', "
+              "CASE WHEN RP.dod = 'alive' THEN 'Still alive' ELSE RP.dod END AS 'Date of Death' "
+              "FROM (SELECT Persons.pID, name, gender, dob, dod "
+                     "FROM ComputersXPersons "
+                     "INNER JOIN Persons ON Persons.pID = ComputersXPersons.pID "
+                     "WHERE cID = " + cid + ") AS RP");
+
+    model->setQuery(*qry);
+
+    db.close();
+
+    return model;
+}
+
+QSqlQueryModel* DbManager::getNPersonXComputers(QString pid)
+{
+    db.open();
+    QSqlQuery *qry = new QSqlQuery();
+    QSqlQueryModel *model = new QSqlQueryModel();
+
+    qry->exec("PRAGMA foreign_keys=ON");
+
+    qry->exec("SELECT cID AS 'id', "
+              "name AS Name, "
+              "CASE WHEN built = 0 THEN 'Not Built' WHEN year IS NULL THEN 'Unknown' ELSE year END AS 'Build Year', "
+              "type AS Type, "
+              "CASE WHEN built = 1 THEN 'Yes' ELSE 'No' END AS Built "
+              "FROM Computers "
+              "EXCEPT "
+              "SELECT RP.cID AS 'id', "
+              "RP.name AS Name, "
+              "CASE WHEN RP.built = 0 THEN 'Not Built' WHEN RP.year IS NULL THEN 'Unknown' ELSE RP.year END AS 'Build Year', "
+              "RP.type AS Type, "
+              "CASE WHEN RP.built = 1 THEN 'Yes' ELSE 'No' END AS Built "
+              "FROM (SELECT Computers.cID, name, year, built, type "
+                    "FROM ComputersXPersons "
+                    "INNER JOIN Computers ON Computers.cID = ComputersXPersons.cID "
+                    "WHERE pID = " + pid + ") AS RP");
+
+    model->setQuery(*qry);
+
+    db.close();
+
+    return model;
 }
 
 bool DbManager::addPerson(Person pers)

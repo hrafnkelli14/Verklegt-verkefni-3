@@ -29,8 +29,10 @@ public:
     QSqlQueryModel* getAllComputers();
     QSqlQueryModel* searchPersons(QString search_type, QString search_query, QString order_by, QString view_gender);
     QSqlQueryModel* searchComputers(QString search_type, QString search_query, QString order_by);
-    ComputerXPersons getComputerXPersons(QString cid);
-    PersonXComputers getPersonXComputers(QString pid);
+    QSqlQueryModel* getComputerXPersons(QString cid);
+    QSqlQueryModel* getPersonXComputers(QString pid);
+    QSqlQueryModel* getNComputerXPersons(QString cid);
+    QSqlQueryModel* getNPersonXComputers(QString pid);
     bool addPerson(Person pers); //adds person to Person table
     bool addComputer(Computer comp);
     bool addComputerXPerson(QString cid, QString pid);

@@ -24,8 +24,10 @@ public:
 
     QSqlQueryModel* outputPersons();
     QSqlQueryModel* outputComputers();
-    ComputerXPersons outputComputerXPersons(QString cid);
-    PersonXComputers outputPersonXComputers(QString pid);
+    QSqlQueryModel* outputComputerXPersons(QString cid);
+    QSqlQueryModel* outputPersonXComputers(QString pid);
+    QSqlQueryModel* outputNComputerXPersons(QString cid);
+    QSqlQueryModel* outputNPersonXComputers(QString pid);
     QSqlQueryModel* searchPersons(QString search_string);
     QSqlQueryModel* searchComputers(QString search_string);
 
