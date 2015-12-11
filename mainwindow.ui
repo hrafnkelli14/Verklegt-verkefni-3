@@ -79,7 +79,7 @@
      </rect>
     </property>
     <property name="placeholderText">
-     <string>Filter names</string>
+     <string>Filter names...</string>
     </property>
    </widget>
   </widget>

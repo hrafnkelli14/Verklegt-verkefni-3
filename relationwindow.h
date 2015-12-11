@@ -26,6 +26,10 @@ private slots:
 
     void on_deleteRelation_clicked();
 
+    void on_filterRelated_textChanged(const QString &arg1);
+
+    void on_filterNRelated_textChanged(const QString &arg1);
+
 private:
     void hideColumns();
     void prepareTables();

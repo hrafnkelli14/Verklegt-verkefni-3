@@ -77,7 +77,7 @@ void MainWindow::on_tableView_customContextMenuRequested(const QPoint &pos)
     connect(delete_action, SIGNAL(triggered()), this, SLOT(deleteAction()));
     QAction *info_action = new QAction("Info", this);
     //connect something
-    QAction *relate_action = new QAction("Relate to", this);
+    QAction *relate_action = new QAction("Edit Relations", this);
     connect(relate_action, SIGNAL(triggered()), this, SLOT(relateAction()));
 
     menu->addAction(edit_action);

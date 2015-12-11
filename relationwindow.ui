@@ -16,8 +16,8 @@
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>370</y>
+     <x>260</x>
+     <y>390</y>
      <width>341</width>
      <height>32</height>
     </rect>
@@ -32,8 +32,8 @@
   <widget class="QTableView" name="relatedTable">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>50</y>
+     <x>50</x>
+     <y>90</y>
      <width>221</width>
      <height>291</height>
     </rect>
@@ -42,8 +42,8 @@
   <widget class="QTableView" name="nRelatedTable">
    <property name="geometry">
     <rect>
-     <x>380</x>
-     <y>50</y>
+     <x>390</x>
+     <y>90</y>
      <width>221</width>
      <height>291</height>
     </rect>
@@ -52,8 +52,8 @@
   <widget class="QPushButton" name="deleteRelation">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>160</y>
+     <x>290</x>
+     <y>210</y>
      <width>80</width>
      <height>21</height>
     </rect>
@@ -65,8 +65,8 @@
   <widget class="QPushButton" name="addRelation">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>200</y>
+     <x>290</x>
+     <y>250</y>
      <width>80</width>
      <height>21</height>
     </rect>
@@ -75,30 +75,43 @@
     <string>&lt;-------</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="filterNames">
+  <widget class="QLineEdit" name="filterRelated">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>20</y>
+     <x>60</x>
+     <y>50</y>
      <width>141</width>
      <height>21</height>
     </rect>
    </property>
    <property name="placeholderText">
-    <string>Filter names</string>
+    <string>Filter related...</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="filterNames_2">
+  <widget class="QLineEdit" name="filterNRelated">
    <property name="geometry">
     <rect>
-     <x>380</x>
-     <y>20</y>
+     <x>430</x>
+     <y>50</y>
      <width>141</width>
      <height>21</height>
     </rect>
    </property>
    <property name="placeholderText">
-    <string>Filter names</string>
+    <string>Filter unrelated...</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="nameOfEdit">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>40</y>
+     <width>111</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Name goes here</string>
    </property>
   </widget>
  </widget>

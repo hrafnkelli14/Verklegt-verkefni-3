@@ -9,15 +9,22 @@ RelationWindow::RelationWindow(QWidget *parent) :
 
     related_proxy = new QSortFilterProxyModel();
     n_related_proxy = new QSortFilterProxyModel();
+    related_proxy->setDynamicSortFilter(true); //allows filtering dynamically
+    related_proxy->setFilterKeyColumn(1); //filter by name
+    related_proxy->setFilterCaseSensitivity(Qt::CaseInsensitive); //filtering is not case sensitive
+    n_related_proxy->setDynamicSortFilter(true); //allows filtering dynamically
+    n_related_proxy->setFilterKeyColumn(1); //filter by name
+    n_related_proxy->setFilterCaseSensitivity(Qt::CaseInsensitive); //filtering is not case sensitive
 
     type = ' ';
 
     ui->relatedTable->verticalHeader()->hide();
     ui->relatedTable->setSortingEnabled(true);
 
-
     ui->nRelatedTable->verticalHeader()->hide();
     ui->nRelatedTable->setSortingEnabled(true);
+
+    ui->buttonBox->button(QDialogButtonBox::Cancel)->hide();
 
 }
 
@@ -33,6 +40,8 @@ void RelationWindow::setRequest(RequestProcessor *_request)
 
 void RelationWindow::setPerson(Person pers)
 {
+    this->setWindowTitle(pers.getName());
+    ui->nameOfEdit->setText(pers.getName());
     type = 'p';
     curr_pers = pers;
     refreshTables();
@@ -40,6 +49,8 @@ void RelationWindow::setPerson(Person pers)
 
 void RelationWindow::setComputer(Computer comp)
 {
+    this->setWindowTitle(comp.getName());
+    ui->nameOfEdit->setText(comp.getName());
     type = 'c';
     curr_comp = comp;
     refreshTables();
@@ -68,6 +79,8 @@ void RelationWindow::prepareTables()
     ui->nRelatedTable->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
     ui->relatedTable->horizontalHeader()->setSortIndicator(-1, Qt::AscendingOrder);
     ui->nRelatedTable->horizontalHeader()->setSortIndicator(-1, Qt::AscendingOrder);
+    ui->relatedTable->setShowGrid(false);
+    ui->nRelatedTable->setShowGrid(false);
 }
 
 void RelationWindow::on_addRelation_clicked()
@@ -113,4 +126,14 @@ void RelationWindow::on_deleteRelation_clicked()
         request->deleteRelation(curr_comp.getId(), id);
     }
     refreshTables();
+}
+
+void RelationWindow::on_filterRelated_textChanged(const QString &arg1)
+{
+    related_proxy->setFilterFixedString(arg1);
+}
+
+void RelationWindow::on_filterNRelated_textChanged(const QString &arg1)
+{
+    n_related_proxy->setFilterFixedString(arg1);
 }
