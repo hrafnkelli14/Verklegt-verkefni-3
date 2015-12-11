@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>613</width>
-    <height>446</height>
+    <width>659</width>
+    <height>512</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>220</x>
-     <y>400</y>
+     <y>460</y>
      <width>341</width>
      <height>32</height>
     </rect>
@@ -32,9 +32,9 @@
   <widget class="QTableView" name="relatedTable">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>120</y>
-     <width>256</width>
+     <x>70</x>
+     <y>240</y>
+     <width>521</width>
      <height>192</height>
     </rect>
    </property>
@@ -42,9 +42,9 @@
   <widget class="QTableView" name="nRelatedTable">
    <property name="geometry">
     <rect>
-     <x>320</x>
-     <y>120</y>
-     <width>256</width>
+     <x>70</x>
+     <y>40</y>
+     <width>521</width>
      <height>192</height>
     </rect>
    </property>
