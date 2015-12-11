@@ -95,6 +95,13 @@ void PersonEdit::on_buttonBox_clicked(QAbstractButton *button)
         {
             pers.setGender("Female");
         }
+        string temp = pers.getName().toStdString();
+        /*if(temp.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890-. "))
+        {
+            ErrorMessage e;
+            e.open();
+
+        }*/
 
         switch(is_edit)
         {
@@ -127,4 +134,9 @@ void PersonEdit::on_deadButton_clicked()
 {
     ui->dodEdit->setPalette(def_palette);
     ui->dodEdit->setReadOnly(false);
+}
+
+void PersonEdit::on_nameEdit_textChanged(const QString &arg1)
+{
+
 }

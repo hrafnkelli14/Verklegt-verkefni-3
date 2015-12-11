@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "requestprocessor.h"
+#include "errormessage.h"
 #include <QAbstractButton>
 #include <QPushButton>
 #include <QTableView>
@@ -30,6 +31,8 @@ private slots:
     void on_aliveButton_clicked();
 
     void on_deadButton_clicked();
+
+    void on_nameEdit_textChanged(const QString &arg1);
 
 private:
     Ui::PersonEdit *ui;
