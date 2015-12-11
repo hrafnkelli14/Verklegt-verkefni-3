@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "requestprocessor.h"
+#include <QSortFilterProxyModel>
 
 namespace Ui {
 class RelationWindow;
@@ -21,7 +22,11 @@ public:
     void setComputer(Computer comp);
 
 private:
+    void hideColumns();
+
     char type;
+    QSortFilterProxyModel *related_proxy;
+    QSortFilterProxyModel *n_related_proxy;
     RequestProcessor *request;
     Ui::RelationWindow *ui;
 };
