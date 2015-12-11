@@ -7,6 +7,7 @@
 #include "personedit.h"
 #include "computeredit.h"
 #include "aboutwindow.h"
+#include "relationwindow.h"
 
 namespace Ui {
 class MainWindow;
@@ -38,6 +39,8 @@ private slots:
     void on_filterNames_textChanged(const QString &arg1);
 
     void aboutAction();
+
+    void relateAction();
 
 private:
 

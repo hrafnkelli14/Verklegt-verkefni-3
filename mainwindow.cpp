@@ -74,10 +74,14 @@ void MainWindow::on_tableView_customContextMenuRequested(const QPoint &pos)
     QAction *delete_action = new QAction("Delete", this);
     connect(delete_action, SIGNAL(triggered()), this, SLOT(deleteAction()));
     QAction *info_action = new QAction("Info", this);
+    //connect something
+    QAction *relate_action = new QAction("Relate to", this);
+    connect(relate_action, SIGNAL(triggered()), this, SLOT(relateAction()));
 
     menu->addAction(edit_action);
     menu->addAction(delete_action);
     menu->addAction(info_action);
+    menu->addAction(relate_action);
     menu->popup(ui->tableView->viewport()->mapToGlobal(pos));
 
 }
@@ -168,4 +172,11 @@ void MainWindow::aboutAction()
     AboutWindow about;
     about.setModal(true);
     about.exec();
+}
+
+void MainWindow::relateAction()
+{
+    RelationWindow rw;
+    rw.setModal(true);
+    rw.exec();
 }
