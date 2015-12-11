@@ -13,9 +13,11 @@ RelationWindow::RelationWindow(QWidget *parent) :
     type = ' ';
 
     ui->relatedTable->verticalHeader()->hide();
+    ui->relatedTable->setSortingEnabled(true);
 
 
     ui->nRelatedTable->verticalHeader()->hide();
+    ui->nRelatedTable->setSortingEnabled(true);
 
 }
 
@@ -33,18 +35,14 @@ void RelationWindow::setPerson(Person pers)
 {
     type = 'p';
     curr_pers = pers;
-    related_proxy->setSourceModel(request->outputPersonXComputers(pers.getId()));
-    n_related_proxy->setSourceModel(request->outputNPersonXComputers(pers.getId()));
-    prepareTables();
+    refreshTables();
 }
 
 void RelationWindow::setComputer(Computer comp)
 {
     type = 'c';
     curr_comp = comp;
-    related_proxy->setSourceModel(request->outputComputerXPersons(comp.getId()));
-    n_related_proxy->setSourceModel(request->outputNComputerXPersons(comp.getId()));
-    prepareTables();
+    refreshTables();
 }
 
 void RelationWindow::hideColumns()
@@ -68,4 +66,51 @@ void RelationWindow::prepareTables()
     hideColumns();
     ui->relatedTable->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
     ui->nRelatedTable->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
+    ui->relatedTable->horizontalHeader()->setSortIndicator(-1, Qt::AscendingOrder);
+    ui->nRelatedTable->horizontalHeader()->setSortIndicator(-1, Qt::AscendingOrder);
+}
+
+void RelationWindow::on_addRelation_clicked()
+{
+    int row = ui->nRelatedTable->selectionModel()->currentIndex().row();
+    QString id = ui->nRelatedTable->model()->data(ui->nRelatedTable->model()->index(row,0)).toString();
+    if(type == 'p')
+    {
+        request->addComputerXPerson(id, curr_pers.getId());
+    }
+    else
+    {
+        request->addComputerXPerson(curr_comp.getId(), id);
+    }
+    refreshTables();
+}
+
+void RelationWindow::refreshTables()
+{
+    if(type == 'p')
+    {
+        related_proxy->setSourceModel(request->outputPersonXComputers(curr_pers.getId()));
+        n_related_proxy->setSourceModel(request->outputNPersonXComputers(curr_pers.getId()));
+    }
+    else
+    {
+        related_proxy->setSourceModel(request->outputComputerXPersons(curr_comp.getId()));
+        n_related_proxy->setSourceModel(request->outputNComputerXPersons(curr_comp.getId()));
+    }
+    prepareTables();
+}
+
+void RelationWindow::on_deleteRelation_clicked()
+{
+    int row = ui->relatedTable->selectionModel()->currentIndex().row();
+    QString id = ui->relatedTable->model()->data(ui->relatedTable->model()->index(row,0)).toString();
+    if(type == 'p')
+    {
+        request->deleteRelation(id, curr_pers.getId());
+    }
+    else
+    {
+        request->deleteRelation(curr_comp.getId(), id);
+    }
+    refreshTables();
 }

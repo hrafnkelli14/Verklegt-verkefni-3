@@ -49,7 +49,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="relateRight">
+  <widget class="QPushButton" name="deleteRelation">
    <property name="geometry">
     <rect>
      <x>280</x>
@@ -62,7 +62,7 @@
     <string>-------&gt;</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="relateLeft">
+  <widget class="QPushButton" name="addRelation">
    <property name="geometry">
     <rect>
      <x>280</x>

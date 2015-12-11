@@ -21,9 +21,15 @@ public:
     void setPerson(Person pers);
     void setComputer(Computer comp);
 
+private slots:
+    void on_addRelation_clicked();
+
+    void on_deleteRelation_clicked();
+
 private:
     void hideColumns();
     void prepareTables();
+    void refreshTables();
 
     char type;
     Computer curr_comp;
