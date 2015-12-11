@@ -22,12 +22,10 @@ SOURCES += main.cpp\
     personxcomputers.cpp \
     relation.cpp \
     requestprocessor.cpp \
-    xmlfile.cpp \
     personedit.cpp \
     computeredit.cpp \
     relationwindow.cpp \
-    aboutwindow.cpp \
-    errormessage.cpp
+    aboutwindow.cpp
 
 HEADERS  += mainwindow.h \
     computer.h \
@@ -37,18 +35,15 @@ HEADERS  += mainwindow.h \
     personxcomputers.h \
     relation.h \
     requestprocessor.h \
-    xmlfile.h \
     personedit.h \
     computeredit.h \
     relationwindow.h \
-    aboutwindow.h \
-    errormessage.h
+    aboutwindow.h
 
 FORMS    += mainwindow.ui \
     personedit.ui \
     computeredit.ui \
     relationwindow.ui \
-    aboutwindow.ui \
-    errormessage.ui
+    aboutwindow.ui
 
 win32:RC_ICONS += icon.ico

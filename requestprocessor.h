@@ -1,7 +1,6 @@
 #include <QString>
 #include <QVector>
 #include <algorithm>
-#include "xmlfile.h"
 #include "dbmanager.h"
 
 #ifndef REQUESTPROCESSOR_H
@@ -15,12 +14,6 @@ public:
     bool addPerson(Person pers); //contains the famous middle-out compression algorithm
     bool addComputer(Computer comp);
     bool addComputerXPerson(QString cid, QString pid);
-
-    void updateSettings(); //what happens here?
-
-    bool isCommand(QString command_string);
-    QString extractCommand(QString command_string);
-    QString extractId(QString command_string);
 
     QSqlQueryModel* outputPersons();
     QSqlQueryModel* outputComputers();
@@ -40,7 +33,6 @@ public:
     bool deleteComputer(QString id);
     bool deleteRelation(QString cid, QString pid);
 private:
-    XmlFile settings; //xml file connection(settings)
     DbManager data; //sql database connection
 };
 

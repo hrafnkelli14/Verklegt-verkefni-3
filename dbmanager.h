@@ -13,11 +13,8 @@
 #ifndef DBMANAGER_H
 #define DBMANAGER_H
 
-/* NOTE: This code is very easy to SQL inject and the bad guys are free to do so.
- * It's in fact so easy, that you have to watch your inputs to avoid accidentally
- * SQL injecting your database. It's very vulnerable to famous computer scientists like
- * Bobby Tables. We know this could be easily fixed by using placeholders instead of
- * just concatenating strings together. This method will be implemented next week.
+/* NOTE: This code is no longer very easy to SQL inject, since the gui doesn't allow inputs of 'bad' characters
+ * the worst you could to, is to comment out your own input. wow.
  */
 
 class DbManager
@@ -27,13 +24,11 @@ public:
     ~DbManager();
     QSqlQueryModel* getAllPersons();
     QSqlQueryModel* getAllComputers();
-    QSqlQueryModel* searchPersons(QString search_type, QString search_query, QString order_by, QString view_gender);
-    QSqlQueryModel* searchComputers(QString search_type, QString search_query, QString order_by);
     QSqlQueryModel* getComputerXPersons(QString cid);
     QSqlQueryModel* getPersonXComputers(QString pid);
     QSqlQueryModel* getNComputerXPersons(QString cid);
     QSqlQueryModel* getNPersonXComputers(QString pid);
-    bool addPerson(Person pers); //adds person to Person table
+    bool addPerson(Person pers);
     bool addComputer(Computer comp);
     bool addComputerXPerson(QString cid, QString pid);
     bool deletePerson(QString pid);
@@ -50,7 +45,6 @@ private:
     QSqlQueryModel* findComputers(QString conditions);
 
     //helpers
-    QString ascOrDesc(QString order_by);
     QString toISO(QString date);
     QString fromISO(QString date);
 

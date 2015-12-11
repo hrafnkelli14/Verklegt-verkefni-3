@@ -3,7 +3,6 @@
 
 #include <QDialog>
 #include "requestprocessor.h"
-#include "errormessage.h"
 #include <QAbstractButton>
 #include <QPushButton>
 #include <QTableView>

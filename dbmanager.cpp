@@ -35,27 +35,6 @@ QSqlQueryModel* DbManager::getAllComputers()
     return findComputers("");
 }
 
-QSqlQueryModel* DbManager::searchPersons(QString search_type, QString search_query, QString order_by, QString view_gender)
-{
-    if(view_gender != "BOTH")
-    {
-       return findPersons("WHERE " + search_type + " COLLATE UTF8_GENERAL_CI LIKE '%" + search_query + "%' "
-                          "AND gender LIKE '" + view_gender + "' " +
-                          "ORDER BY " + ascOrDesc(order_by));
-    }
-    else
-    {
-        return findPersons("WHERE " + search_type + " COLLATE UTF8_GENERAL_CI LIKE '%" + search_query + "%' "
-                           "ORDER BY " + ascOrDesc(order_by));
-    }
-}
-
-QSqlQueryModel* DbManager::searchComputers(QString search_type, QString search_query, QString order_by)
-{
-    return findComputers("WHERE " + search_type + " COLLATE UTF8_GENERAL_CI LIKE '%" + search_query + "%' "
-                         "ORDER BY " + ascOrDesc(order_by));
-}
-
 QSqlQueryModel* DbManager::getComputerXPersons(QString cid)
 {
     db.open();
@@ -444,27 +423,6 @@ QSqlQueryModel* DbManager::findComputers(QString conditions)
     db.close();
 
     return model;
-}
-
-QString DbManager::ascOrDesc(QString order_by)
-{
-    if(order_by.toStdString().find("_R") <= order_by.size())
-    {
-        QString n_order_by = "";
-        for(int i = 0; i < order_by.size(); i++)
-        {
-            if(order_by[i] == '_')
-            {
-                break;
-            }
-            n_order_by += order_by[i];
-        }
-        return n_order_by + " DESC";
-    }
-    else
-    {
-        return order_by + " ASC";
-    }
 }
 
 QString DbManager::toISO(QString date)
