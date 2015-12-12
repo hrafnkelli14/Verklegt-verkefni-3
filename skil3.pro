@@ -16,11 +16,8 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     computer.cpp \
-    computerxpersons.cpp \
     dbmanager.cpp \
     person.cpp \
-    personxcomputers.cpp \
-    relation.cpp \
     requestprocessor.cpp \
     personedit.cpp \
     computeredit.cpp \
@@ -30,11 +27,8 @@ SOURCES += main.cpp\
 
 HEADERS  += mainwindow.h \
     computer.h \
-    computerxpersons.h \
     dbmanager.h \
     person.h \
-    personxcomputers.h \
-    relation.h \
     requestprocessor.h \
     personedit.h \
     computeredit.h \
