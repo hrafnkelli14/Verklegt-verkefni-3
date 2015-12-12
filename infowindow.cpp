@@ -121,3 +121,8 @@ QString InfoWindow::spaceToLine(QString s)
 }
 
 
+
+void InfoWindow::on_pushButton_clicked()
+{
+    this->close();
+}

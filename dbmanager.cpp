@@ -47,7 +47,7 @@ QSqlQueryModel* DbManager::getComputerXPersons(QString cid)
               "RP.name AS Name, "
               "RP.gender AS Gender, "
               "RP.dob AS 'Date of Birth', "
-              "RP.dod AS 'Date of Death' "
+              "CASE WHEN dod = 'alive' THEN 'Still alive' ELSE dod END AS 'Date of Death' "
               "FROM (SELECT Persons.pID, name, gender, dob, dod "
                     "FROM ComputersXPersons "
                     "INNER JOIN Persons ON Persons.pID = ComputersXPersons.pID "

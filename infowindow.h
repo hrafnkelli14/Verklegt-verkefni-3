@@ -23,6 +23,8 @@ public:
 
 private slots:
 
+    void on_pushButton_clicked();
+
 private:
     void setWikiLink();
     QString spaceToLine(QString s);
