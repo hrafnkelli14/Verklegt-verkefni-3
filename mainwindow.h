@@ -8,6 +8,7 @@
 #include "computeredit.h"
 #include "aboutwindow.h"
 #include "relationwindow.h"
+#include "infowindow.h"
 
 namespace Ui {
 class MainWindow;
@@ -43,6 +44,8 @@ private slots:
     void relateAction();
 
     void exitAction();
+
+    void infoAction();
 private:
 
     Ui::MainWindow *ui;

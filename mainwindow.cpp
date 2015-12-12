@@ -76,7 +76,7 @@ void MainWindow::on_tableView_customContextMenuRequested(const QPoint &pos)
     QAction *delete_action = new QAction("Delete", this);
     connect(delete_action, SIGNAL(triggered()), this, SLOT(deleteAction()));
     QAction *info_action = new QAction("Info", this);
-    //connect something
+    connect(info_action, SIGNAL(triggered()), this, SLOT(infoAction()));
     QAction *relate_action = new QAction("Edit Relations", this);
     connect(relate_action, SIGNAL(triggered()), this, SLOT(relateAction()));
 
@@ -200,4 +200,22 @@ void MainWindow::relateAction()
 void MainWindow::exitAction()
 {
     this->close();
+}
+
+void MainWindow::infoAction()
+{
+    int row = curr_index.row();
+    QString id = ui->tableView->model()->data(ui->tableView->model()->index(row,0)).toString();
+    InfoWindow info;
+    info.setModal(true);
+    info.setRequest(&request);
+    if(ui->radioCS->isChecked())
+    {
+        info.setPerson(request.getPerson(id));
+    }
+    else
+    {
+        info.setComputer(request.getComputer(id));
+    }
+    info.exec();
 }

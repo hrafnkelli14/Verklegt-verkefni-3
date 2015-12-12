@@ -29,6 +29,7 @@ void AboutWindow::on_pushButton_2_clicked()
         QNetworkProxyFactory::setUseSystemConfiguration(true);
         QWebSettings::globalSettings()->setAttribute(QWebSettings::PluginsEnabled, true);
         QWebSettings::globalSettings()->setAttribute(QWebSettings::AutoLoadImages, true);
-        ui->webView->load(QUrl("http://www.dailymotion.com/embed/video/x2ey36?autoplay"));
+        ui->webView->load(QUrl("http://i.imgur.com/j85s4Fw.jpg"));
+        ui->textBrowser->hide();
     }
 }
