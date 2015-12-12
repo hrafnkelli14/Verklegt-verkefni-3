@@ -31,6 +31,9 @@ void InfoWindow::setPerson(Person pers)
     ui->relatorTable->setModel(proxy_relator);
     ui->relatedTable->hideColumn(0);
     ui->relatorTable->hideColumn(0);
+    ui->relatedTable->verticalHeader()->setVisible(false);
+    ui->relatorTable->verticalHeader()->setVisible(false);
+    ui->relatedTable->setSortingEnabled(true);
     for (int c = 0; c < ui->relatedTable->horizontalHeader()->count(); ++c) //fill the width of the table window
     {
         ui->relatedTable->horizontalHeader()->setSectionResizeMode(
@@ -41,6 +44,9 @@ void InfoWindow::setPerson(Person pers)
         ui->relatorTable->horizontalHeader()->setSectionResizeMode(
             c, QHeaderView::Stretch);
     }
+    ui->typeLabel->setText("Computer Scientist:");
+    ui->typeLabel->setAlignment(Qt::AlignCenter);
+    this->setWindowTitle(curr_pers.getName());
     setWikiLink();
 }
 
@@ -54,6 +60,9 @@ void InfoWindow::setComputer(Computer comp)
     ui->relatorTable->setModel(proxy_relator);
     ui->relatedTable->hideColumn(0);
     ui->relatorTable->hideColumn(0);
+    ui->relatedTable->verticalHeader()->setVisible(false);
+    ui->relatorTable->verticalHeader()->setVisible(false);
+    ui->relatedTable->setSortingEnabled(true);
     for (int c = 0; c < ui->relatedTable->horizontalHeader()->count(); ++c) //fill the width of the table window
     {
         ui->relatedTable->horizontalHeader()->setSectionResizeMode(
@@ -64,6 +73,9 @@ void InfoWindow::setComputer(Computer comp)
         ui->relatorTable->horizontalHeader()->setSectionResizeMode(
             c, QHeaderView::Stretch);
     }
+    ui->typeLabel->setText("Computer:");
+    ui->typeLabel->setAlignment(Qt::AlignCenter);
+    this->setWindowTitle(curr_comp.getName());
     setWikiLink();
 }
 

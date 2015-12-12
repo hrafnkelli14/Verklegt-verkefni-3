@@ -32,8 +32,8 @@
   <widget class="QLabel" name="wikiLabel">
    <property name="geometry">
     <rect>
-     <x>400</x>
-     <y>120</y>
+     <x>410</x>
+     <y>90</y>
      <width>47</width>
      <height>13</height>
     </rect>
@@ -60,6 +60,32 @@
      <width>431</width>
      <height>51</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>120</y>
+     <width>81</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Related to:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="typeLabel">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>20</y>
+     <width>101</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Type:</string>
    </property>
   </widget>
  </widget>
