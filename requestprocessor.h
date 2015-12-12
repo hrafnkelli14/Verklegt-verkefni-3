@@ -21,6 +21,8 @@ public:
     QSqlQueryModel* outputPersonXComputers(QString pid);
     QSqlQueryModel* outputNComputerXPersons(QString cid);
     QSqlQueryModel* outputNPersonXComputers(QString pid);
+    QSqlQueryModel* outputPerson(QString pid);
+    QSqlQueryModel* outputComputer(QString cid);
 
     Person getPerson(QString id);
     Computer getComputer(QString id);

@@ -57,6 +57,16 @@ QSqlQueryModel* RequestProcessor::outputNPersonXComputers(QString pid)
     return data.getNPersonXComputers(pid);
 }
 
+QSqlQueryModel* RequestProcessor::outputPerson(QString pid)
+{
+    return data.getOnePerson(pid);
+}
+
+QSqlQueryModel* RequestProcessor::outputComputer(QString cid)
+{
+    return data.getOneComputer(cid);
+}
+
 Person RequestProcessor::getPerson(QString id)
 {
     return data.getPerson(id);

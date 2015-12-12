@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "requestprocessor.h"
+#include <QSortFilterProxyModel>
 
 namespace Ui {
 class InfoWindow;
@@ -29,9 +30,12 @@ private:
     Ui::InfoWindow *ui;
 
     RequestProcessor *request;
+    QSortFilterProxyModel *proxy_relator;
+    QSortFilterProxyModel *proxy_related;
     Person curr_pers;
     Computer curr_comp;
     char type;
+    QString article_url;
 };
 
 #endif // INFOWINDOW_H

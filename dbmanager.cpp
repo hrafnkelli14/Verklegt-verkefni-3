@@ -150,6 +150,16 @@ QSqlQueryModel* DbManager::getNPersonXComputers(QString pid)
     return model;
 }
 
+QSqlQueryModel* DbManager::getOnePerson(QString pid)
+{
+    return findPersons("WHERE pID = " + pid);
+}
+
+QSqlQueryModel* DbManager::getOneComputer(QString cid)
+{
+    return findComputers("WHERE cID = " + cid);
+}
+
 bool DbManager::addPerson(Person pers)
 {
     QString dob_iso = toISO(pers.getDoB());

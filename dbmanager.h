@@ -7,8 +7,6 @@
 #include <QSqlQueryModel>
 #include "person.h"
 #include "computer.h"
-#include "computerxpersons.h"
-#include "personxcomputers.h"
 
 #ifndef DBMANAGER_H
 #define DBMANAGER_H
@@ -28,6 +26,8 @@ public:
     QSqlQueryModel* getPersonXComputers(QString pid);
     QSqlQueryModel* getNComputerXPersons(QString cid);
     QSqlQueryModel* getNPersonXComputers(QString pid);
+    QSqlQueryModel* getOnePerson(QString pid);
+    QSqlQueryModel* getOneComputer(QString cid);
     bool addPerson(Person pers);
     bool addComputer(Computer comp);
     bool addComputerXPerson(QString cid, QString pid);
