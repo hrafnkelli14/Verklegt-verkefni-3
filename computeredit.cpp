@@ -11,8 +11,8 @@ ComputerEdit::ComputerEdit(QWidget *parent) :
     def_palette = ui->buildYear->palette();
 
     ui->wasBuilt->setChecked(true);
-    ui->buildYear->setMinimum(0);
-    ui->buildYear->setMaximum(2015);
+    ui->buildYear->setMinimum(1820); //the mechanical computer was still just an idea in Babbages head then, should suffice
+    ui->buildYear->setMaximum(QDate::currentDate().year());
 
     ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
     ui->nameEdit->setStyleSheet("border: 1px solid red");
