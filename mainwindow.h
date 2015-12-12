@@ -9,6 +9,7 @@
 #include "aboutwindow.h"
 #include "relationwindow.h"
 #include "infowindow.h"
+#include "helpwindow.h"
 
 namespace Ui {
 class MainWindow;
@@ -46,6 +47,8 @@ private slots:
     void exitAction();
 
     void infoAction();
+
+    void helpAction();
 private:
 
     Ui::MainWindow *ui;

@@ -32,6 +32,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //MENUBAR
     connect(ui->actionAbout, SIGNAL(triggered()), this, SLOT(aboutAction())); //connect about window to menubar
     connect(ui->actionExit, SIGNAL(triggered()), this, SLOT(exitAction()));
+    connect(ui->actionHelp, SIGNAL(triggered()), this, SLOT(helpAction()));
 }
 
 MainWindow::~MainWindow()
@@ -218,4 +219,11 @@ void MainWindow::infoAction()
         info.setComputer(request.getComputer(id));
     }
     info.exec();
+}
+
+void MainWindow::helpAction()
+{
+    HelpWindow help;
+    help.setModal(true);
+    help.exec();
 }

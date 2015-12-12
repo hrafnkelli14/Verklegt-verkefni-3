@@ -15,6 +15,9 @@ public:
     explicit HelpWindow(QWidget *parent = 0);
     ~HelpWindow();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::HelpWindow *ui;
 };
