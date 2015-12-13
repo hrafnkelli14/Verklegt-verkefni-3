@@ -19,10 +19,10 @@ public:
     explicit PersonEdit(QWidget *parent = 0);
     ~PersonEdit();
 
-    void setRequest(RequestProcessor* _request);
-    void setTable(QTableView* _table);
-    void setPerson(Person pers);
-    void setProxyModel(QSortFilterProxyModel* _proxy_model);
+    void setRequest(RequestProcessor* _request); //uses a pointer so we dont have to make two connections to db
+    void setTable(QTableView* _table); //so it can update the tableview from here
+    void setPerson(Person pers); //if this is called, editing mode will be assumed
+    void setProxyModel(QSortFilterProxyModel* _proxy_model); //so it can update the model from here
 
 private slots:
     void on_buttonBox_clicked(QAbstractButton *button);
@@ -33,7 +33,10 @@ private slots:
 
     void on_nameEdit_textEdited(const QString &arg1);
 
+    void on_dobEdit_editingFinished();
+
 private:
+    //Input checking helpers
     void prepareWarningIcon();
     bool checkInput(const QString &input);
     bool checkChar(const QChar &ch);

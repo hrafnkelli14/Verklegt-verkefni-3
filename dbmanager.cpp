@@ -94,13 +94,13 @@ QSqlQueryModel* DbManager::getNComputerXPersons(QString cid)
 
     qry->exec("PRAGMA foreign_keys=ON");
 
-    qry->exec("SELECT pID AS 'id', "
+    qry->exec("SELECT pID AS 'id', " //first finds every person
               "name AS Name, "
               "gender AS Gender, "
               "dob AS 'Date of Birth', "
               "CASE WHEN dod = 'alive' THEN 'Still alive' ELSE dod END AS 'Date of Death' "
               "FROM Persons "
-              "EXCEPT "
+              "EXCEPT " //every person that exists, except those who are related
               "SELECT RP.pID AS 'id', "
               "RP.name AS Name, "
               "RP.gender AS Gender, "
@@ -126,7 +126,7 @@ QSqlQueryModel* DbManager::getNPersonXComputers(QString pid)
 
     qry->exec("PRAGMA foreign_keys=ON");
 
-    qry->exec("SELECT cID AS 'id', "
+    qry->exec("SELECT cID AS 'id', " //uses same method as ncomputerxpersons
               "name AS Name, "
               "CASE WHEN built = 0 THEN 'Not Built' WHEN year IS NULL THEN 'Unknown' ELSE year END AS 'Build Year', "
               "type AS Type, "

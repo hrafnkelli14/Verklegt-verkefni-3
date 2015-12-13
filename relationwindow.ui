@@ -104,8 +104,8 @@
   <widget class="QLabel" name="nameOfEdit">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>40</y>
+     <x>290</x>
+     <y>50</y>
      <width>111</width>
      <height>21</height>
     </rect>

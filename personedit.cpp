@@ -14,6 +14,9 @@ PersonEdit::PersonEdit(QWidget *parent) :
     ui->deadButton->setChecked(true);
     ui->maleButton->setChecked(true);
 
+    ui->dobEdit->setMaximumDate(QDate::currentDate());
+    ui->dodEdit->setMaximumDate(QDate::currentDate());
+
     prepareWarningIcon();
     ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
     ui->nameEdit->setStyleSheet("border: 1px solid red");
@@ -204,4 +207,9 @@ bool PersonEdit::checkChar(const QChar &ch)
     }
 
     return false;
+}
+
+void PersonEdit::on_dobEdit_editingFinished()
+{
+    ui->dodEdit->setMinimumDate(ui->dobEdit->date());
 }

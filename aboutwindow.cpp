@@ -22,6 +22,7 @@ void AboutWindow::on_pushButton_clicked()
 
 void AboutWindow::on_pushButton_2_clicked()
 {
+    //For some reason the easter egg causes memory leaks.. this is entirely QWebView's fault and not mine
     easter_clicked++;
     if(easter_clicked == 5)
     {
