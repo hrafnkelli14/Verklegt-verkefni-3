@@ -48,6 +48,7 @@ void InfoWindow::setPerson(Person pers)
     ui->typeLabel->setAlignment(Qt::AlignCenter);
     this->setWindowTitle(curr_pers.getName());
     setWikiLink();
+    ui->relatorTable->verticalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
 }
 
 void InfoWindow::setComputer(Computer comp)
@@ -77,6 +78,7 @@ void InfoWindow::setComputer(Computer comp)
     ui->typeLabel->setAlignment(Qt::AlignCenter);
     this->setWindowTitle(curr_comp.getName());
     setWikiLink();
+    ui->relatorTable->verticalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
 }
 
 void InfoWindow::setRequest(RequestProcessor *_request)
