@@ -2,11 +2,6 @@
 #define ABOUTWINDOW_H
 
 #include <QDialog>
-#include <QNetworkProxyFactory>
-#include <QtWebKit/QWebElement>
-#include <QtWebKit/QtWebKit>
-#include <QtWebKitWidgets/QWebPage>
-#include <QtNetwork>
 
 namespace Ui {
 class AboutWindow;

@@ -90,6 +90,8 @@ void ComputerEdit::on_buttonBox_clicked(QAbstractButton *button)
 void ComputerEdit::setComputer(Computer comp)
 {
     this->setWindowTitle("Edit Computer");
+    valid_name = true;
+    valid_type = true;
     is_edit = true;
     edit_id = comp.getId();
     bool built = comp.getBuilt();

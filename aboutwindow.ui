@@ -59,21 +59,6 @@ p, li { white-space: pre-wrap; }
     <string>OK</string>
    </property>
   </widget>
-  <widget class="QWebView" name="webView">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>50</y>
-     <width>141</width>
-     <height>191</height>
-    </rect>
-   </property>
-   <property name="url">
-    <url>
-     <string>about:blank</string>
-    </url>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
@@ -87,14 +72,82 @@ p, li { white-space: pre-wrap; }
     <string>?</string>
    </property>
   </widget>
+  <widget class="QTextEdit" name="christmasEgg">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>20</y>
+     <width>411</width>
+     <height>791</height>
+    </rect>
+   </property>
+   <property name="html">
+    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                     .,,,...                            :$L ;$  ,dP&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;            ,!!!!!!!',cd$$$$$e,                 q  4$f,$$,z$&amp;quot;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;          ,!!!!!!!',c$$$$$$$$$$$$c              `$o`$$kuC3$$ .zf&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;        ,!!!!!!!',c$$$$$$P**&amp;quot;&amp;quot;**?$c              R$beeF?$$$$$&amp;quot;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;       ;!!!!!!! c$$$$$$&amp;quot;,eed$$F&amp;quot;?t&amp;quot;               &amp;quot;$$$$bd$$$&amp;quot;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;      ;!!!!!!!.d$$$$$F j&amp;quot;j$3$bf&amp;quot;&amp;quot;?b?e,             '$$$$$$P&amp;quot;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;     !!!!!!:  $$$$$$P J,f ,d$$b?$bde`$c          .$k&amp;lt;?????&amp;gt;'$b&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;     !!!!!!!$$$$F&amp;quot;.$$&amp;quot;.u$$??P}&amp;quot;&amp;quot;&amp;quot;^ ?$$c.       d$$$$$dd$$$$$&amp;gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;      `!!!!!  ?L e$$ $$$$$P'zee^&amp;quot;$$$$boc&amp;quot;$$,     R$$$$$$$$$$$$&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;       '!!!   z$$$$$c,&amp;quot;$P'd$$F'zdbeereee$$$$$eu    &amp;quot;??$$$$PF&amp;quot;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Mn      !!   d$$$$$$$$ee z$P&amp;quot;,d$$$$$$c?$$$$$$$$C  '!!!::::!!!&amp;gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;MMM   ,cec, '^$$$$$$$$$c,&amp;quot;,e$$C?$$$$$$bc?$$$$$$$k !!!!!!!!!!!!&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;MMM'.$$$$$$$, ?$$$$$$$$P$$$$$$$bc?T$$$$$$d$$$$$$$ . -.`!!!!!!!&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;nMM d$$$$$$$F  $$P???&amp;quot;,e4$$$$$$$$bcc?$$$$$$$$$$$$ /~:.!!!!!!!!!&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;n.  &amp;quot;$$$$$$$'   ::,&amp;quot;??e,.-.?$$$$$$$$$$$$$$$$$$$$F.C&amp;quot;m.`!!!!!!!'&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;M&amp;quot;:!:`&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;   :!!!!!!i:.&amp;quot;?o. &amp;quot;? ?$$$??$$$&amp;quot;$$F&amp;quot;$P&amp;lt;$$$b/4.`4!!!&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;: 4!!!!h     &amp;lt;!!!!!!!!!!:  .CL.F'.zeElu. : ?eb o$$$$$$o(#c'`&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;  '`~!!~.ud !!````'!''``zd$$$$$`d$$$CuuJ&amp;quot; !: 4$$$$$$$$$$c&amp;quot;$c&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;.&amp;quot; !~`z$$$&amp;quot;:!!!~`..:i! d$$$$$$$`$$$$FCCJ&amp;quot; !!!: ?$$$$$$$$$b $L&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;$$&amp;quot;z$$$$$&amp;quot;:!!! :!!!!!'4$$$$$$$$`$$$$$&amp;quot; &amp;quot;&amp;quot; !!!!!:`$$$$$$$$$$ &amp;quot;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;?o$$$$$$F !!!!!!!!!!! 4$$$$$$$$;?$P&amp;quot;: JL \.~!!!!i $$$$P?&amp;quot;l.u-&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;$$$$$$$$F!!!!!!!!!!!!:'R$$$$$$$E.:! $.$$c3$%:`!!! .l==7Cuec^ &amp;lt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;$$$$$$$$ !!!!!!!!!!!!!i ?$$$$P&amp;quot;&amp;lt;!!! ?$`$$$$N.     Rk`$$$$$$r\&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;$$$$$$$$L`!!!!!!!!!!!!!!! .:::!!!''`   $$$$$$      $c&amp;quot;??&amp;quot;7u+? !&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;$$$$$$$$$ !!!!!!!!!!!'` :!!''`         '&amp;quot;&amp;quot;        .'?b&amp;quot;l.4d$ !!!:&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;$$$$$$$$$b `!!!'''`.. '''`               ...:::!!!!!! $$$.?$b'!!!&amp;gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;$$$$$$$$$$$beee@$$$$$$$$        ..:::!!!!!!!!!!!!!!!! 3$$b ?$c`!!!&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;$$$$$$$$$$$$$$$$$$$$$$$f .::!!!!!!!!!!!!!!!!!!!!!!!!! d$$$$`$$b !!!&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;$$$$$$$$$$$&amp;quot;3$$$$$$$$$&amp;quot;:!!!!!!!!!!!!!!!!!!!!!!!!!!!!! $$$$$,$$$k !!!&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;$$$$$$$$$P,d$$$$$$$$F !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 3$$$$$ $$$i`!!! 3&amp;gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;$$$$$$F$Fz$$$$$$$$$$ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! d$$$$$h`$$$,!!! $&amp;amp;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;$$$$$FJFx$$$$$$$$$$ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'4$$$$$$$ 9$$$.'.$$$L&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;$$$$$ F.$$$$$$$$F.r !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! $$$$$$$F  ?$$$e$$$$F&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;$$$$F .$$$$$$$$&amp;quot;d$$bu,,.```''!!!!!!!!!!!!!!!!'''''`,d$$$$$$$F.! ?$$$$$$F&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;$$$$F d$$$$$$$$ $$$$$$$$$$$bc,,,,,,,,,,,,,,,,ccd$$$$$$$$$$$$ !!f ?$$$$&amp;quot;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &amp;quot;$$$e$$$$$$$$&amp;amp;'$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ !! $P&amp;quot;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;   `&amp;quot;?$$$$$$$$$e`?$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ !!'&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;      `?$$$$$$$$$$e `&amp;quot;&amp;quot;**???$$$$$$$$$$$$$$$$$$$$$$$P***&amp;quot;&amp;quot;..:!!'&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;         &amp;quot;?$$$$$$$$k`!!!!!!;;;;;;::,,,...... ,,,,,;;!!!!!!!!!!&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;             &amp;quot;&amp;quot;???&amp;quot;&amp;quot; !!!!!!!!!!!!!!!!!!!!!!  !!!!!!!!!!!!!!!!!:&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                      !!!!!!!!!!!!!!!!!!!'   !!!!!!!!!!!!!!!!!!&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                       !!!!!!!!!!!!!!!!.   `!!!!!!!!!'''!!!!'&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                     :i !!!!!!!!!!!!!!!!   .``''`.,uu,,.```.&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                     !!!!!!!!!!!!!!!!!~`    d$$$$$$$$$$$$$$$$$&amp;gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                    c.`~~~~~!!!!!:..        $$$$$$$$$$$$$$$$$$&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                    $$$$$eeeeeeeuuuee$      $$$$$$$$$$$$$$$$$&amp;quot;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                    $$$$$$$$$$$$$$$$$$       &amp;quot;&amp;quot;&amp;quot;&amp;quot;...........&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                    ?$$$$$$$$$$$$$$$P&amp;quot;       '!!!!!!!!!!!!!!&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                      ..&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;.:          !!!!!!!!!!!!!&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                     :!!!!!!!!!!!!!!          `!!!!!!!!!!!'&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                     i!!!!!!!!!!!!!'          !!!!!!!!!!!'::&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                     :!!!!!!!!!!!!!           !!!!!!!!!!:!!:.&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                     !!!!!!!!!!'!!!           . `!!!!!!!!!!!!`...&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                     `!!!!!!!! -'``           !!!!!!!!!!!!!!!!!!!!!::&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                      !!!!!!!!!i!!!:           `~~~~~```~~~~~~~~~~~~`&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                      !!!!!!!!!!!!!!!.&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                        ```'!!!!!!!'``::..&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                              `!!!!!!!!!!!'&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                                 `````&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>QWebView</class>
-   <extends>QWidget</extends>
-   <header>QtWebKitWidgets/QWebView</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

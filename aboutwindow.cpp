@@ -7,7 +7,8 @@ AboutWindow::AboutWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     easter_clicked = 0;
-    ui->webView->hide();
+    ui->christmasEgg->hide();
+    ui->christmasEgg->setReadOnly(true);
 }
 
 AboutWindow::~AboutWindow()
@@ -22,15 +23,14 @@ void AboutWindow::on_pushButton_clicked()
 
 void AboutWindow::on_pushButton_2_clicked()
 {
-    //For some reason the easter egg causes memory leaks.. this is entirely QWebView's fault and not mine
     easter_clicked++;
     if(easter_clicked == 5)
     {
-        ui->webView->show();
-        QNetworkProxyFactory::setUseSystemConfiguration(true);
-        QWebSettings::globalSettings()->setAttribute(QWebSettings::PluginsEnabled, true);
-        QWebSettings::globalSettings()->setAttribute(QWebSettings::AutoLoadImages, true);
-        ui->webView->load(QUrl("http://i.imgur.com/j85s4Fw.jpg"));
-        ui->textBrowser->hide();
+        int w = this->width();
+        this->resize(w, 900);
+        ui->christmasEgg->show();
+        int x = ui->pushButton->x();
+        ui->pushButton->move(x, 850);
+        this->setWindowTitle("Merry Christmas!");
     }
 }
