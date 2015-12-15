@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
     proxy_model->setFilterCaseSensitivity(Qt::CaseInsensitive); //filtering is not case sensitive
     ui->tableView->setModel(proxy_model); //Initial table view
     ui->tableView->setSortingEnabled(true); //enable sorting by clicking on header
-    ui->tableView->verticalHeader()->setVisible(false); //hide vertical header
+    ui->tableView->verticalHeader()->setVisible(false); //hide verdtical header
     ui->tableView->hideColumn(0); //hide id column
     ui->tableView->horizontalHeader()->setSortIndicator(-1, Qt::AscendingOrder);
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows); //select by rows, not columns
